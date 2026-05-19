@@ -1,0 +1,3059 @@
+Try AI directly in your favorite apps … Use Gemini to generate drafts and refine content, plus get Gemini Pro with access to Google's next-gen AI for ZAR 429.99 ZAR 34.99 for 3 months
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Traficc — BM Tool Suite</title>
+<style>
+
+
+  :root {
+    --navy:    #1A2B4A;
+    --navy2:   #243659;
+    --blue:    #2563A8;
+    --amber:   #E8A020;
+    --amber-l: #FEF3DC;
+    --amber-d: #B87A10;
+    --green:   #16A34A;
+    --green-l: #E8F5E9;
+    --red:     #B91C1C;
+    --red-l:   #FDECEA;
+    --grey-50: #F8F9FB;
+    --grey-100:#EEF1F6;
+    --grey-200:#D8DDE8;
+    --grey-400:#8A93A6;
+    --grey-700:#3D4759;
+    --white:   #FFFFFF;
+    --text:    #1A2B4A;
+    --text-2:  #4A5568;
+    --text-3:  #8A93A6;
+    --radius:  10px;
+    --radius-lg: 14px;
+    --shadow:  0 2px 12px rgba(26,43,74,0.08);
+    --shadow-card: 0 4px 24px rgba(26,43,74,0.10);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background: #F0F4FA;
+    color: var(--text);
+    min-height: 100vh;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* ── Header ── */
+  .header {
+    background: var(--navy);
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .logo {
+    font-family: monospace;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--white);
+    letter-spacing: 0.04em;
+  }
+  .logo span { color: var(--amber); }
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .header-tag {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--grey-400);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .header-bm {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--amber);
+    letter-spacing: 0.02em;
+  }
+
+  /* ── Start Screen ── */
+  .start-screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 56px);
+    padding: 24px 16px;
+  }
+  .start-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--grey-100);
+    box-shadow: var(--shadow-card);
+    padding: 40px 40px 36px;
+    max-width: 440px;
+    width: 100%;
+    animation: slideIn 0.28s ease;
+  }
+  .start-logo-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 28px;
+  }
+  .start-logo-badge {
+    background: var(--navy);
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-family: monospace;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--white);
+    letter-spacing: 0.04em;
+  }
+  .start-logo-badge span { color: var(--amber); }
+  .start-title {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 6px;
+    line-height: 1.25;
+  }
+  .start-sub {
+    font-size: 13.5px;
+    color: var(--text-3);
+    margin-bottom: 28px;
+    line-height: 1.5;
+  }
+  .start-field {
+    margin-bottom: 16px;
+  }
+  .start-label {
+    font-size: 11.5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--grey-400);
+    margin-bottom: 6px;
+    display: block;
+  }
+  .start-input {
+    width: 100%;
+    padding: 11px 14px;
+    border-radius: var(--radius);
+    border: 1.5px solid var(--grey-200);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 14.5px;
+    color: var(--text);
+    background: var(--white);
+    transition: border-color 0.15s;
+    outline: none;
+  }
+  .start-input:focus { border-color: var(--blue); }
+  .start-input.error { border-color: var(--red); }
+  .start-error {
+    font-size: 12px;
+    color: var(--red);
+    margin-top: 5px;
+    display: none;
+  }
+  .start-error.show { display: block; }
+  .btn-start {
+    width: 100%;
+    margin-top: 8px;
+    padding: 13px;
+    background: var(--navy);
+    color: var(--white);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: background 0.16s;
+    letter-spacing: 0.01em;
+  }
+  .btn-start:hover { background: var(--blue); }
+  .start-note {
+    margin-top: 16px;
+    font-size: 11.5px;
+    color: var(--text-3);
+    text-align: center;
+    line-height: 1.5;
+  }
+
+  /* ── Sequencing Screen ── */
+  .seq-screen {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 56px);
+    padding: 24px 16px;
+  }
+  .seq-screen.visible {
+    display: flex;
+  }
+  .seq-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--grey-100);
+    box-shadow: var(--shadow-card);
+    padding: 40px 40px 36px;
+    max-width: 480px;
+    width: 100%;
+    animation: slideIn 0.28s ease;
+  }
+  .seq-greeting {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--amber-d);
+    font-family: monospace;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .seq-title {
+    font-size: 21px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 8px;
+    line-height: 1.25;
+  }
+  .seq-sub {
+    font-size: 13.5px;
+    color: var(--text-3);
+    margin-bottom: 28px;
+    line-height: 1.5;
+  }
+  .seq-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .seq-option {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 16px 18px;
+    border-radius: var(--radius);
+    border: 2px solid var(--grey-200);
+    background: var(--white);
+    cursor: pointer;
+    transition: all 0.18s ease;
+    text-align: left;
+    width: 100%;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+  }
+  .seq-option:hover {
+    border-color: var(--navy);
+    background: var(--grey-50);
+  }
+  .seq-option-icon {
+    font-size: 22px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .seq-option-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 3px;
+  }
+  .seq-option-desc {
+    font-size: 12.5px;
+    color: var(--text-3);
+    line-height: 1.45;
+  }
+
+  /* ── Deal Details Screen ── */
+  .deal-screen {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 56px);
+    padding: 24px 16px;
+  }
+  .deal-screen.visible { display: flex; }
+  .deal-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--grey-100);
+    box-shadow: var(--shadow-card);
+    padding: 40px 40px 36px;
+    max-width: 480px;
+    width: 100%;
+    animation: slideIn 0.28s ease;
+  }
+  .deal-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--amber-l);
+    border: 1px solid var(--amber);
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--amber-d);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .deal-title {
+    font-size: 21px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+  .deal-sub {
+    font-size: 13.5px;
+    color: var(--text-3);
+    margin-bottom: 24px;
+    line-height: 1.5;
+  }
+  .deal-sum-insured {
+    background: var(--grey-50);
+    border: 1px solid var(--grey-100);
+    border-radius: var(--radius);
+    padding: 10px 14px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .deal-sum-label {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--grey-400);
+  }
+  .deal-sum-value {
+    font-family: monospace;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--navy);
+  }
+  .btn-deal {
+    width: 100%;
+    margin-top: 8px;
+    padding: 13px;
+    background: var(--navy);
+    color: var(--white);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: background 0.16s;
+  }
+  .btn-deal:hover { background: var(--blue); }
+
+  /* ── Calc sidebar — deal info display ── */
+  .calc-deal-info {
+    background: var(--grey-50);
+    border: 1px solid var(--grey-100);
+    border-radius: var(--radius);
+    padding: 10px 12px;
+    margin-bottom: 14px;
+  }
+  .calc-deal-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    padding: 2px 0;
+  }
+  .calc-deal-label { color: var(--grey-400); font-weight: 500; }
+  .calc-deal-val {
+    font-family: monospace;
+    font-weight: 500;
+    color: var(--navy);
+    font-size: 12px;
+  }
+  .calc-basis-tag {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--amber-d);
+    margin-bottom: 8px;
+  }
+  /* ── Shortfall calc download button ── */
+  .btn-download-calc {
+    width: 100%;
+    margin-top: 12px;
+    padding: 10px;
+    background: var(--green-l);
+    color: var(--green);
+    border: 1.5px solid var(--green);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: all 0.15s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+  }
+  .btn-download-calc:hover { background: #C8EDD4; }
+
+  /* ── Main tool (hidden until login) ── */
+  .main-tool { display: none; }
+  .main-tool.visible { display: block; }
+
+  /* ── Layout ── */
+  .shell {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px 16px 60px;
+  }
+
+  /* ── Two-column layout when calc visible ── */
+  .tool-layout {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  .tool-main {
+    flex: 1;
+    min-width: 0;
+  }
+  .tool-sidebar {
+    width: 300px;
+    flex-shrink: 0;
+    display: none;
+  }
+  .tool-sidebar.visible {
+    display: block;
+  }
+
+  /* ── Product tabs ── */
+  .product-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  .tab {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 7px 16px;
+    border-radius: 24px;
+    border: 1.5px solid var(--grey-200);
+    background: var(--white);
+    color: var(--grey-700);
+    cursor: pointer;
+    transition: all 0.18s ease;
+    white-space: nowrap;
+  }
+  .tab:hover { border-color: var(--blue); color: var(--blue); }
+  .tab.active {
+    background: var(--navy);
+    border-color: var(--navy);
+    color: var(--white);
+  }
+
+  /* ── Progress bar ── */
+  .progress-wrap {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 14px 18px;
+    margin-bottom: 16px;
+    border: 1px solid var(--grey-100);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .progress-track {
+    flex: 1;
+    height: 4px;
+    background: var(--grey-100);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--blue), var(--amber));
+    border-radius: 2px;
+    transition: width 0.3s ease;
+  }
+  .progress-label {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--grey-400);
+    white-space: nowrap;
+    min-width: 70px;
+    text-align: right;
+  }
+  .progress-product {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--navy);
+    min-width: 130px;
+  }
+
+  /* ── Card ── */
+  .card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--grey-100);
+    box-shadow: var(--shadow-card);
+    padding: 28px 28px 24px;
+    min-height: 380px;
+    animation: slideIn 0.22s ease;
+  }
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .card-phase {
+    font-family: monospace;
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--amber-d);
+    margin-bottom: 8px;
+  }
+  .card-title {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 16px;
+    line-height: 1.25;
+  }
+
+  /* ── Say this ── */
+  .say-box {
+    background: var(--amber-l);
+    border-left: 3px solid var(--amber);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 12px 16px;
+    margin: 12px 0;
+  }
+  .say-label {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--amber-d);
+    margin-bottom: 5px;
+  }
+  .say-text {
+    font-size: 14.5px;
+    font-style: italic;
+    color: var(--navy);
+    line-height: 1.55;
+  }
+
+  /* ── Body text ── */
+  .card-body {
+    font-size: 14px;
+    color: var(--text-2);
+    line-height: 1.65;
+    margin: 10px 0;
+  }
+
+  /* ── Steps list ── */
+  .steps-list {
+    list-style: none;
+    margin: 12px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .steps-list li {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 8px 12px;
+    background: var(--grey-50);
+    border-radius: var(--radius);
+    border: 1px solid var(--grey-100);
+  }
+  .step-key {
+    font-family: monospace;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--amber-d);
+    min-width: 100px;
+    padding-top: 1px;
+    flex-shrink: 0;
+  }
+  .step-val {
+    font-size: 13.5px;
+    color: var(--text-2);
+    line-height: 1.45;
+  }
+
+  /* ── Close line ── */
+  .close-box {
+    background: var(--green-l);
+    border-left: 3px solid var(--green);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 12px 16px;
+    margin: 14px 0;
+  }
+  .close-label {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--green);
+    margin-bottom: 5px;
+  }
+  .close-text {
+    font-size: 14.5px;
+    font-style: italic;
+    color: var(--navy);
+    line-height: 1.55;
+  }
+
+  /* ── Objections ── */
+  .obj-section { margin: 16px 0 4px; }
+  .obj-heading {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--grey-400);
+    margin-bottom: 8px;
+  }
+  .obj-chips { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 4px; }
+  .obj-chip {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 12.5px;
+    font-style: italic;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 20px;
+    border: 1.5px solid #F0959580;
+    background: var(--red-l);
+    color: var(--red);
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .obj-chip:hover, .obj-chip.active { background: #F7C1C1; border-color: var(--red); }
+  .obj-response {
+    background: var(--red-l);
+    border-radius: var(--radius);
+    border: 1px solid #F0959560;
+    padding: 12px 14px;
+    margin-top: 8px;
+    font-size: 13.5px;
+    color: #6B1212;
+    line-height: 1.55;
+    display: none;
+    animation: fadeIn 0.18s ease;
+  }
+  .obj-response.show { display: block; }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  .obj-q { font-weight: 600; font-style: italic; margin-bottom: 5px; }
+
+  /* ── New objection submission ── */
+  .new-obj-section {
+    margin-top: 14px;
+    border-top: 1px solid var(--grey-100);
+    padding-top: 14px;
+  }
+  .new-obj-toggle {
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--blue);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    padding: 0;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+  }
+  .new-obj-toggle:hover { text-decoration: underline; }
+  .new-obj-form {
+    display: none;
+    margin-top: 10px;
+    animation: fadeIn 0.15s ease;
+  }
+  .new-obj-form.show { display: block; }
+  .new-obj-input {
+    width: 100%;
+    padding: 9px 12px;
+    border-radius: var(--radius);
+    border: 1.5px solid var(--grey-200);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 13.5px;
+    color: var(--text);
+    outline: none;
+    resize: vertical;
+    min-height: 72px;
+    transition: border-color 0.15s;
+  }
+  .new-obj-input:focus { border-color: var(--blue); }
+  .new-obj-row {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+    align-items: center;
+  }
+  .btn-submit-obj {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 8px 16px;
+    background: var(--navy);
+    color: var(--white);
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .btn-submit-obj:hover { background: var(--blue); }
+  .btn-cancel-obj {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 8px 14px;
+    background: transparent;
+    color: var(--grey-400);
+    border: 1.5px solid var(--grey-200);
+    border-radius: var(--radius);
+    cursor: pointer;
+  }
+  .obj-submitted-msg {
+    font-size: 12.5px;
+    color: var(--green);
+    font-weight: 500;
+    display: none;
+    margin-top: 6px;
+  }
+  .obj-submitted-msg.show { display: block; }
+
+  /* ── Reminders ── */
+  .reminders {
+    margin: 14px 0 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .reminder {
+    font-size: 13px;
+    color: var(--text-2);
+    display: flex;
+    gap: 9px;
+    align-items: flex-start;
+  }
+  .reminder-chk {
+    font-size: 13px;
+    color: var(--green);
+    font-weight: 600;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* ── Summary bar ── */
+  .summary-bar {
+    background: var(--navy);
+    border-radius: var(--radius);
+    padding: 12px 18px;
+    margin-top: 18px;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--white);
+    text-align: center;
+    letter-spacing: 0.01em;
+  }
+
+  /* ── Cross-sell ── */
+  .cross-sell {
+    margin-top: 12px;
+    font-size: 13px;
+    color: var(--grey-400);
+  }
+  .cross-link {
+    color: var(--blue);
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.15s;
+  }
+  .cross-link:hover { border-color: var(--blue); }
+
+  /* ── Nav buttons ── */
+  .nav-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 18px;
+    align-items: center;
+  }
+  .btn {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 10px 22px;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: all 0.16s;
+    border: none;
+  }
+  .btn-ghost {
+    background: transparent;
+    border: 1.5px solid var(--grey-200);
+    color: var(--grey-700);
+  }
+  .btn-ghost:hover { background: var(--grey-50); border-color: var(--grey-400); }
+  .btn-ghost:disabled { opacity: 0.35; cursor: default; }
+  .btn-primary {
+    background: var(--navy);
+    color: var(--white);
+  }
+  .btn-primary:hover { background: var(--blue); }
+  .btn-primary:disabled { opacity: 0.35; cursor: default; }
+  .spacer { flex: 1; }
+
+  /* ── Complete card ── */
+  .complete-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 300px;
+    gap: 12px;
+  }
+  .complete-icon {
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    background: var(--green-l);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+  }
+  .complete-title { font-size: 20px; font-weight: 600; color: var(--navy); }
+  .complete-sub { font-size: 14px; color: var(--grey-400); max-width: 300px; }
+  .btn-restart {
+    margin-top: 8px;
+    background: var(--grey-50);
+    border: 1.5px solid var(--grey-200);
+    color: var(--navy);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 10px 22px;
+    border-radius: var(--radius);
+    cursor: pointer;
+  }
+  .btn-restart:hover { background: var(--grey-100); }
+
+  /* ── Premium Calculator Sidebar ── */
+  .calc-sidebar {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--grey-100);
+    box-shadow: var(--shadow-card);
+    padding: 20px;
+    position: sticky;
+    top: 76px;
+  }
+  .calc-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+  .calc-title {
+    font-family: monospace;
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--amber-d);
+  }
+  .calc-product-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 14px;
+  }
+  .calc-field-label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--grey-400);
+    margin-bottom: 6px;
+    display: block;
+  }
+  .calc-input-wrap {
+    position: relative;
+    margin-bottom: 16px;
+  }
+  .calc-prefix {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--grey-400);
+  }
+  .calc-input {
+    width: 100%;
+    padding: 10px 12px 10px 28px;
+    border-radius: var(--radius);
+    border: 1.5px solid var(--grey-200);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 14.5px;
+    font-weight: 500;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.15s;
+  }
+  .calc-input:focus { border-color: var(--blue); }
+  .calc-options {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .calc-option {
+    background: var(--grey-50);
+    border: 1px solid var(--grey-100);
+    border-radius: var(--radius);
+    padding: 10px 12px;
+    transition: border-color 0.15s;
+  }
+  .calc-option:hover { border-color: var(--grey-200); }
+  .calc-option-name {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-2);
+    margin-bottom: 4px;
+    line-height: 1.3;
+  }
+  .calc-option-premium {
+    font-family: monospace;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--navy);
+  }
+  .calc-option-premium.highlight {
+    color: var(--blue);
+  }
+  .calc-empty {
+    font-size: 12.5px;
+    color: var(--text-3);
+    text-align: center;
+    padding: 20px 0;
+    line-height: 1.5;
+  }
+  .calc-divider {
+    border: none;
+    border-top: 1px solid var(--grey-100);
+    margin: 14px 0;
+  }
+  .calc-note {
+    font-size: 11px;
+    color: var(--text-3);
+    line-height: 1.5;
+    margin-top: 10px;
+  }
+
+  /* ── Footer ── */
+  .footer {
+    text-align: center;
+    font-size: 11px;
+    color: var(--grey-400);
+    margin-top: 40px;
+    letter-spacing: 0.04em;
+  }
+
+  /* ── Notification banner ── */
+  .notif-banner {
+    background: var(--amber-l);
+    border: 1.5px solid var(--amber);
+    border-radius: var(--radius);
+    padding: 12px 16px;
+    margin-bottom: 16px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    animation: slideIn 0.22s ease;
+  }
+  .notif-icon { font-size: 18px; flex-shrink: 0; }
+  .notif-text { font-size: 13.5px; color: var(--amber-d); font-weight: 500; line-height: 1.5; }
+
+  /* ── Scenario selector ── */
+  .scenario-tabs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+  }
+  .scenario-tab {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 12.5px;
+    font-weight: 500;
+    padding: 7px 14px;
+    border-radius: 20px;
+    border: 1.5px solid var(--grey-200);
+    background: var(--white);
+    color: var(--grey-700);
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .scenario-tab:hover { border-color: var(--blue); color: var(--blue); }
+  .scenario-tab.active { background: var(--navy); border-color: var(--navy); color: var(--white); }
+  .scenario-content { animation: fadeIn 0.18s ease; }
+
+  @media (max-width: 760px) {
+    .tool-layout { flex-direction: column; }
+    .tool-sidebar { width: 100%; position: static; }
+    .shell { padding: 16px 12px 40px; }
+    .card { padding: 20px 18px; }
+    .card-title { font-size: 19px; }
+    .step-key { min-width: 80px; }
+    .start-card { padding: 28px 22px; }
+  }
+
+
+/* ── TOP NAV (unified bar) ── */
+.top-nav {
+  display: none;
+  align-items: center;
+  gap: 4px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 8px;
+  padding: 4px;
+}
+.top-nav.visible { display: flex; }
+.top-nav-btn {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 16px;
+  border-radius: 6px;
+  border: none;
+  background: transparent;
+  color: rgba(255,255,255,0.65);
+  cursor: pointer;
+  transition: all 0.16s;
+  white-space: nowrap;
+}
+.top-nav-btn:hover { background: rgba(255,255,255,0.12); color: #fff; }
+.top-nav-btn.active { background: #E8A020; color: #1A2B4A; font-weight: 600; }
+
+/* ── Reset Deal button ── */
+.btn-reset-deal {
+  display: none;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 5px 12px;
+  background: transparent;
+  border: 1.5px solid rgba(255,255,255,0.25);
+  border-radius: 6px;
+  color: rgba(255,255,255,0.7);
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+.btn-reset-deal:hover { border-color: #E8A020; color: #E8A020; }
+.btn-reset-deal.visible { display: inline-flex; align-items: center; gap: 5px; }
+
+/* ── Deal summary chip ── */
+.deal-chip {
+  display: none;
+  font-size: 11px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.55);
+  background: rgba(255,255,255,0.07);
+  border-radius: 6px;
+  padding: 4px 10px;
+  white-space: nowrap;
+}
+.deal-chip.visible { display: inline-block; }
+
+/* ── Tool views ── */
+.tool-view { display: none; }
+.tool-view.visible { display: block; }
+
+/* ── Dict shell ── */
+.dict-shell {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 28px 16px 60px;
+}
+.intro { margin-bottom: 24px; }
+.intro-title { font-size: 20px; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
+.intro-sub { font-size: 13.5px; color: var(--grey-400); line-height: 1.5; }
+.product-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 24px; }
+.prod-btn {
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 10px 18px;
+  border-radius: 24px;
+  border: 2px solid var(--grey-200);
+  background: var(--white);
+  color: var(--grey-700);
+  cursor: pointer;
+  transition: all 0.18s;
+  display: flex; align-items: center; gap: 8px;
+}
+.prod-btn:hover { border-color: var(--blue); color: var(--blue); }
+.prod-btn.active { background: var(--navy); border-color: var(--navy); color: var(--white); }
+.prod-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.chat-wrap { background: var(--white); border-radius: var(--radius-lg); border: 1px solid var(--grey-100); box-shadow: var(--shadow-card); overflow: hidden; }
+.chat-header { background: var(--grey-50); border-bottom: 1px solid var(--grey-100); padding: 14px 20px; display: flex; align-items: center; gap: 10px; }
+.chat-product-badge { font-size: 12px; font-weight: 600; color: var(--navy); background: var(--amber-l); border: 1px solid var(--amber); border-radius: 20px; padding: 3px 12px; }
+.chat-hint { font-size: 12px; color: var(--grey-400); }
+.messages { min-height: 300px; max-height: 520px; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 16px; }
+.msg { display: flex; gap: 10px; align-items: flex-start; animation: fadeUp 0.2s ease; }
+@keyframes fadeUp { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:translateY(0); } }
+.msg.user { flex-direction: row-reverse; }
+.msg-avatar { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; flex-shrink: 0; }
+.msg.user .msg-avatar { background: var(--navy); color: var(--white); }
+.msg.assistant .msg-avatar { background: var(--amber-l); color: var(--amber-d); font-size: 16px; }
+.msg-bubble { max-width: 80%; padding: 12px 16px; border-radius: 12px; font-size: 14px; line-height: 1.6; }
+.msg.user .msg-bubble { background: var(--navy); color: var(--white); border-radius: 12px 2px 12px 12px; }
+.msg.assistant .msg-bubble { background: var(--grey-50); border: 1px solid var(--grey-100); color: var(--text-2); border-radius: 2px 12px 12px 12px; }
+.msg-source { margin-top: 8px; padding: 8px 12px; background: var(--amber-l); border-left: 3px solid var(--amber); border-radius: 0 6px 6px 0; font-size: 12px; color: var(--amber-d); font-weight: 500; }
+.msg-source-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 2px; font-weight: 700; }
+.empty-state { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 260px; gap: 10px; color: var(--grey-400); text-align: center; }
+.empty-icon { font-size: 36px; }
+.empty-title { font-size: 15px; font-weight: 600; color: var(--grey-700); }
+.empty-sub { font-size: 13px; max-width: 300px; line-height: 1.5; }
+.suggestions { padding: 12px 20px; border-top: 1px solid var(--grey-100); display: flex; flex-wrap: wrap; gap: 7px; }
+.suggestion-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; color: var(--grey-400); width: 100%; margin-bottom: 2px; }
+.suggestion-chip { font-family: inherit; font-size: 12px; font-style: italic; padding: 5px 12px; border-radius: 16px; border: 1.5px solid var(--grey-200); background: var(--white); color: var(--grey-700); cursor: pointer; transition: all 0.15s; }
+.suggestion-chip:hover { border-color: var(--blue); color: var(--blue); }
+.input-area { padding: 16px 20px; border-top: 1px solid var(--grey-100); display: flex; gap: 10px; align-items: flex-end; }
+.input-box { flex:1; padding: 11px 14px; border-radius: var(--radius); border: 1.5px solid var(--grey-200); font-family: inherit; font-size: 14px; color: var(--text); resize: none; outline: none; transition: border-color 0.15s; min-height: 44px; max-height: 120px; line-height: 1.5; }
+.input-box:focus { border-color: var(--blue); }
+.input-box::placeholder { color: var(--grey-400); }
+.input-box:disabled { background: var(--grey-50); }
+.btn-ask { font-family: inherit; font-size: 14px; font-weight: 600; padding: 11px 20px; background: var(--navy); color: var(--white); border: none; border-radius: var(--radius); cursor: pointer; transition: background 0.15s; white-space: nowrap; height: 44px; }
+.btn-ask:hover { background: var(--blue); }
+.btn-ask:disabled { opacity: 0.4; cursor: default; }
+.typing-dots { display: flex; gap: 4px; padding: 12px 16px; background: var(--grey-50); border: 1px solid var(--grey-100); border-radius: 2px 12px 12px 12px; }
+.typing-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--grey-400); animation: bounce 1.2s infinite; }
+.typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation-delay: 0.4s; }
+@keyframes bounce { 0%, 60%, 100% { transform: translateY(0); } 30% { transform: translateY(-6px); } }
+.clear-btn { font-family: inherit; font-size: 12px; color: var(--grey-400); background: none; border: none; cursor: pointer; padding: 4px 8px; border-radius: 6px; }
+.clear-btn:hover { color: var(--red); background: var(--red-l); }
+
+/* ── Reset Deal modal ── */
+.modal-overlay {
+  display: none; position: fixed; inset: 0;
+  background: rgba(26,43,74,0.55); z-index: 300;
+  align-items: center; justify-content: center; padding: 24px;
+}
+.modal-overlay.visible { display: flex; }
+.modal-card { background: var(--white); border-radius: var(--radius-lg); box-shadow: var(--shadow-card); padding: 32px; max-width: 400px; width: 100%; animation: slideIn 0.22s ease; }
+.modal-title { font-size: 18px; font-weight: 600; color: var(--navy); margin-bottom: 10px; }
+.modal-body { font-size: 14px; color: var(--text-2); line-height: 1.6; margin-bottom: 24px; }
+.modal-row { display: flex; gap: 10px; justify-content: flex-end; }
+.btn-modal-cancel { font-family: inherit; font-size: 14px; font-weight: 500; padding: 10px 20px; background: transparent; border: 1.5px solid var(--grey-200); color: var(--grey-700); border-radius: var(--radius); cursor: pointer; }
+.btn-modal-cancel:hover { background: var(--grey-50); }
+.btn-modal-confirm { font-family: inherit; font-size: 14px; font-weight: 600; padding: 10px 20px; background: var(--navy); color: var(--white); border: none; border-radius: var(--radius); cursor: pointer; }
+.btn-modal-confirm:hover { background: var(--blue); }
+
+</style>
+</head>
+<body>
+<!-- ══════════════════════════════════════════ -->
+<!-- HEADER -->
+<!-- ══════════════════════════════════════════ -->
+<header class="header">
+  <div class="logo"><img src="data:image/png;base64,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" alt="Traficc" style="height:30px;display:block;"></div>
+
+  <nav class="top-nav" id="topNav">
+    <button class="top-nav-btn active" id="navSelling" onclick="switchView('selling')">Selling Guide</button>
+    <button class="top-nav-btn" id="navDict" onclick="switchView('dictionary')">Product Dictionary</button>
+  </nav>
+
+  <div class="header-right">
+    <div class="deal-chip" id="dealChip"></div>
+    <button class="btn-reset-deal" id="btnResetDeal" onclick="confirmResetDeal()">↺ Reset Deal</button>
+    <div class="header-bm" id="headerBmName"></div>
+  </div>
+</header>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- RESET DEAL MODAL -->
+<!-- ══════════════════════════════════════════ -->
+<div class="modal-overlay" id="resetModal">
+  <div class="modal-card">
+    <div class="modal-title">Reset deal figures?</div>
+    <div class="modal-body">This will clear the invoice amount, deposit, and sum insured, and return you to the transaction type screen. Your session (name and group) will be kept — no need to log in again.</div>
+    <div class="modal-row">
+      <button class="btn-modal-cancel" onclick="closeResetModal()">Cancel</button>
+      <button class="btn-modal-confirm" onclick="executeResetDeal()">Yes, reset deal</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- START SCREEN -->
+<!-- ══════════════════════════════════════════ -->
+<div class="start-screen" id="startScreen">
+  <div class="start-card">
+    <div class="start-logo-row">
+      <div class="start-logo-badge" style="background:transparent;padding:0;">
+        <img src="data:image/png;base64,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" alt="Traficc" style="height:32px;display:block;">
+      </div>
+    </div>
+    <div class="start-title">BM Tool Suite</div>
+    <div class="start-sub">Enter your details to access the Selling Guide and Product Dictionary. Your usage helps us track performance and improvement over time.</div>
+
+    <div class="start-field">
+      <label class="start-label" for="inputFirstName">First Name</label>
+      <input class="start-input" id="inputFirstName" type="text" placeholder="e.g. Johan" autocomplete="given-name">
+      <div class="start-error" id="errFirstName">Please enter your first name.</div>
+    </div>
+    <div class="start-field">
+      <label class="start-label" for="inputSurname">Surname</label>
+      <input class="start-input" id="inputSurname" type="text" placeholder="e.g. van der Merwe" autocomplete="family-name">
+      <div class="start-error" id="errSurname">Please enter your surname.</div>
+    </div>
+    <div class="start-field">
+      <label class="start-label" for="inputGroup">Group Name</label>
+      <input class="start-input" id="inputGroup" type="text" placeholder="e.g. Motus, Sandown, McCarthy" autocomplete="organization">
+      <div class="start-error" id="errGroup">Please enter your group name.</div>
+    </div>
+
+    <button class="btn-start" onclick="handleStart()">Enter Tool Suite →</button>
+    <div class="start-note">Your name is logged for performance tracking purposes only.<br>This tool is confidential — for internal use only.</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- SEQUENCING SCREEN -->
+<!-- ══════════════════════════════════════════ -->
+<div class="seq-screen" id="seqScreen">
+  <div class="seq-card">
+    <div class="seq-greeting" id="seqGreeting">Good to go</div>
+    <div class="seq-title">What type of transaction is this?</div>
+    <div class="seq-sub">This determines which products are relevant for this client. Select one to continue.</div>
+    <div class="seq-options">
+      <button class="seq-option" onclick="handleSequenceSelect('finance')">
+        <div class="seq-option-icon">💳</div>
+        <div>
+          <div class="seq-option-title">Finance</div>
+          <div class="seq-option-desc">Top-Up Cover, RTI, Protection Plan, Cosmetic Plan, Tyre &amp; Rim</div>
+        </div>
+      </button>
+      <button class="seq-option" onclick="handleSequenceSelect('cash')">
+        <div class="seq-option-icon">💵</div>
+        <div>
+          <div class="seq-option-title">Cash Purchase</div>
+          <div class="seq-option-desc">RTI, Cosmetic Plan, Tyre &amp; Rim — Protection Plan and Top-Up not applicable</div>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- DEAL DETAILS SCREEN -->
+<!-- ══════════════════════════════════════════ -->
+<div class="deal-screen" id="dealScreen">
+  <div class="deal-card">
+    <div class="deal-badge" id="dealBadge">💳 Finance Deal</div>
+    <div class="deal-title">Enter deal details</div>
+    <div class="deal-sub">These figures are used to calculate premiums and pre-fill the Shortfall Calculator.</div>
+
+    <div class="start-field">
+      <label class="start-label" for="inputInvoice">Invoice Amount (incl. VAPs &amp; Accessories)</label>
+      <div class="calc-input-wrap" style="margin-bottom:0">
+        <span class="calc-prefix">R</span>
+        <input class="calc-input start-input" id="inputInvoice" type="number" placeholder="e.g. 450000" oninput="updateSumInsured()">
+      </div>
+      <div class="start-error" id="errInvoice">Please enter the invoice amount.</div>
+    </div>
+
+    <div class="start-field" id="depositField" style="margin-top:16px;">
+      <label class="start-label" for="inputDeposit">Deposit</label>
+      <div class="calc-input-wrap" style="margin-bottom:0">
+        <span class="calc-prefix">R</span>
+        <input class="calc-input start-input" id="inputDeposit" type="number" placeholder="e.g. 50000 (enter 0 if none)" oninput="updateSumInsured()">
+      </div>
+    </div>
+
+    <div class="deal-sum-insured" id="sumInsuredDisplay" style="margin-top:20px;display:none;">
+      <div class="deal-sum-label">Sum Insured (Finance Amount)</div>
+      <div class="deal-sum-val" id="sumInsuredVal">R 0</div>
+    </div>
+
+    <button class="btn-deal" onclick="handleDealDetails()">Continue to Guide →</button>
+    <div class="start-note" style="margin-top:14px;">These figures will auto-populate the Shortfall Calculator download.</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- SELLING GUIDE VIEW -->
+<!-- ══════════════════════════════════════════ -->
+<div class="tool-view" id="viewSelling">
+  <div class="main-tool" id="mainTool">
+    <div class="shell">
+      <div class="tool-layout">
+        <div class="tool-main">
+          <div class="product-row" id="productTabs"></div>
+          <div class="progress-wrap">
+            <div class="progress-product" id="progressProduct"></div>
+            <div class="progress-track">
+              <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="progress-label" id="progressLabel"></div>
+          </div>
+          <div id="cardArea"></div>
+          <div class="nav-row">
+            <button class="btn btn-ghost" id="btnBack" onclick="prevStep()">← Back</button>
+            <div class="spacer"></div>
+            <button class="btn btn-primary" id="btnNext" onclick="nextStep()">Next step →</button>
+          </div>
+        </div>
+
+        <!-- CALCULATOR SIDEBAR -->
+        <div class="tool-sidebar" id="calcSidebar">
+          <div class="calc-sidebar">
+            <div class="calc-header">
+              <div class="calc-title">Premium Calculator</div>
+            </div>
+            <div class="calc-product-name" id="calcProductName">—</div>
+            <div class="calc-deal-info" id="calcDealInfo">
+              <div class="calc-deal-row">
+                <span class="calc-deal-label">Invoice Amount</span>
+                <span class="calc-deal-val" id="calcInvoiceDisplay">—</span>
+              </div>
+              <div class="calc-deal-row" id="calcDepositRow">
+                <span class="calc-deal-label">Deposit</span>
+                <span class="calc-deal-val" id="calcDepositDisplay">—</span>
+              </div>
+              <div class="calc-deal-row" id="calcSumRow">
+                <span class="calc-deal-label">Sum Insured</span>
+                <span class="calc-deal-val" id="calcSumDisplay">—</span>
+              </div>
+            </div>
+            <div class="calc-basis-tag" id="calcBasisTag"></div>
+            <div class="calc-options" id="calcOptions"></div>
+            <hr class="calc-divider">
+            <div class="calc-note">All premiums are monthly estimates. Admin fee of R25 included. Rates are indicative — confirm with your rate card for final figures.</div>
+            <button class="btn-download-calc" id="btnDownloadCalc" onclick="logDownload()" style="display:none;">
+              ↓ Download Shortfall Calculator
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="footer">TRAFICC · CONFIDENTIAL · FOR INTERNAL USE ONLY</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- PRODUCT DICTIONARY VIEW -->
+<!-- ══════════════════════════════════════════ -->
+<div class="tool-view" id="viewDictionary">
+  <div class="dict-shell">
+    <div class="intro">
+      <div class="intro-title">Product Knowledge Base</div>
+      <div class="intro-sub">Select a product, then ask any question about benefits, exclusions, claims, premiums, or definitions. Answers are sourced directly from the official terms and conditions.</div>
+    </div>
+
+    <div class="product-grid" id="productGrid"></div>
+
+    <div class="chat-wrap">
+      <div class="chat-header">
+        <div class="chat-product-badge" id="chatBadge">Select a product to begin</div>
+        <div class="chat-hint" id="chatHint"></div>
+        <div style="flex:1"></div>
+        <button class="clear-btn" onclick="clearChat()" id="clearBtn" style="display:none;">Clear chat</button>
+      </div>
+      <div class="messages" id="messages">
+        <div class="empty-state" id="emptyState">
+          <div class="empty-icon">📖</div>
+          <div class="empty-title">No product selected</div>
+          <div class="empty-sub">Choose a product above to start asking questions about its terms and conditions.</div>
+        </div>
+      </div>
+      <div class="suggestions" id="suggestions" style="display:none;"></div>
+      <div class="input-area">
+        <textarea class="input-box" id="inputBox" placeholder="Select a product first..." rows="1" disabled></textarea>
+        <button class="btn-ask" id="btnAsk" onclick="askQuestion()" disabled>Ask →</button>
+      </div>
+    </div>
+
+    <div class="footer">TRAFICC · CONFIDENTIAL · FOR INTERNAL USE ONLY</div>
+  </div>
+</div>
+<script>
+
+// ═══════════════════════════════════════════════════
+// SHARED SESSION STATE
+// Persists across tab switches; cleared on page close
+// ═══════════════════════════════════════════════════
+let bmFirstName = '', bmSurname = '', bmGroup = '', transactionType = '';
+let dealInvoice = 0, dealDeposit = 0, dealSumInsured = 0;
+let _sessionActive = false; // true once deal details entered
+
+const $ = id => document.getElementById(id);
+
+// ── View switcher ──
+function switchView(view) {
+  // Can only switch if session is active (past deal details screen)
+  if (!_sessionActive) return;
+
+  $('viewSelling').classList.toggle('visible', view === 'selling');
+  $('viewDictionary').classList.toggle('visible', view === 'dictionary');
+  $('navSelling').classList.toggle('active', view === 'selling');
+  $('navDict').classList.toggle('active', view === 'dictionary');
+
+  if (view === 'dictionary') {
+    initDictListeners();
+    renderDictProducts();
+  }
+}
+
+// ── Reset Deal ──
+function confirmResetDeal() {
+  $('resetModal').classList.add('visible');
+}
+function closeResetModal() {
+  $('resetModal').classList.remove('visible');
+}
+function executeResetDeal() {
+  closeResetModal();
+  // Clear deal state
+  transactionType = ''; dealInvoice = 0; dealDeposit = 0; dealSumInsured = 0;
+  _sessionActive = false;
+  // Hide tool views, show sequence screen
+  $('viewSelling').classList.remove('visible');
+  $('viewDictionary').classList.remove('visible');
+  $('seqGreeting').textContent = 'Welcome back, ' + bmFirstName;
+  $('seqScreen').classList.add('visible');
+  // Reset deal chip
+  $('dealChip').classList.remove('visible');
+  $('dealChip').textContent = '';
+  $('btnResetDeal').classList.remove('visible');
+  // Reset nav to selling active
+  $('navSelling').classList.add('active');
+  $('navDict').classList.remove('active');
+}
+
+// ── Update deal chip in header ──
+function updateDealChip() {
+  if (dealInvoice > 0) {
+    const fmt = v => 'R ' + v.toLocaleString('en-ZA', {minimumFractionDigits: 0, maximumFractionDigits: 0});
+    let chipText = fmt(dealInvoice);
+    if (transactionType === 'finance' && dealDeposit > 0) chipText += ' · dep ' + fmt(dealDeposit);
+    $('dealChip').textContent = chipText;
+    $('dealChip').classList.add('visible');
+    $('btnResetDeal').classList.add('visible');
+  }
+}
+
+// ═══════════════════════════════════════════════════
+// SELLING GUIDE JS
+// ═══════════════════════════════════════════════════
+
+// NOTE: logging is handled via /api/log serverless function
+
+// Product ordering by transaction type
+const PRODUCT_SETS = {
+  finance: ['shortfall', 'rti', 'protection', 'cosmetic', 'tyre'],
+  cash:    ['rti', 'cosmetic', 'tyre']
+};
+let activeProducts = []; // filtered, ordered list of product objects
+
+// Which products use invoice amount vs sum insured for premium calc
+const CALC_BASIS = {
+  shortfall: 'invoice',
+  rti:       'invoice',
+  protection:'suminsured'
+};
+
+// ── Premium formulas ──
+const CALC_PRODUCTS = {
+  shortfall: {
+    name: 'Top-Up Cover',
+    options: [
+      { name: 'Top-Up Cover', calc: si => 25 + (0.00057 * si) },
+      { name: 'Top-Up + Excess Protector', calc: si => 25 + (0.00093 * si) },
+      { name: 'Top-Up + Excess & Instalment Protector', calc: si => 25 + (0.00111 * si) }
+    ]
+  },
+  rti: {
+    name: 'Return to Invoice (RTI)',
+    options: [
+      { name: 'Return to Invoice', calc: si => 25 + (0.00115 * si) },
+      { name: 'RTI + Excess Protector', calc: si => 25 + (0.00151 * si) },
+      { name: 'RTI + Excess & Instalment Protector', calc: si => 25 + (0.00169 * si) }
+    ]
+  },
+  protection: {
+    name: 'Protection Plan',
+    options: [
+      { name: 'Death Only', calc: si => 25 + (0.00093 * si) },
+      { name: 'Death + Disability', calc: si => 25 + (0.00110 * si) },
+      { name: 'Death + Disability + Retrenchment', calc: si => 25 + (0.00125 * si) },
+      { name: 'Death + Disability + Dread Disease', calc: si => 25 + (0.00130 * si) },
+      { name: 'Death + Retrenchment', calc: si => 25 + (0.00120 * si) },
+      { name: 'Death + Disability + Retrenchment + Dread Disease', calc: si => 25 + (0.00160 * si) }
+    ]
+  }
+};
+
+// Products that show the calculator
+const CALC_ENABLED = ['shortfall', 'rti', 'protection'];
+
+// ── Tool data ──
+const DATA = [
+  {
+    id: "shortfall", label: "Top-Up Cover",
+    notification: "Before you begin — download the Shortfall Calculator from the sidebar and complete the client's deal details. Have it ready to use when you reach Step 3.",
+    steps: [
+      {
+        phase: "Step 1 of 7 — Open",
+        title: "Start with their exposure",
+        say: "Just so I understand your risk properly — what excess do you currently have on your insurance?",
+        body: "Let them answer. Most don't know their excess off the top of their head. That pause is your value anchor — it forces them to confront their own exposure before you say anything.",
+        objs: []
+      },
+      {
+        phase: "Step 2 of 7 — Anchor the risk",
+        title: "The double exposure problem",
+        body: "In a total loss, there are two separate financial hits landing at the same time:",
+        steps: [
+          ["Excess", "Cash they must pay immediately — out of their own pocket"],
+          ["Shortfall", "Debt still owed to the bank after the insurer pays out"]
+        ],
+        say: "In a total loss, you're exposed twice — upfront cash AND remaining debt.",
+        objs: []
+      },
+      {
+        phase: "Step 3 of 7 — Premium Over Time vs Benefit",
+        title: "Premium Over Time vs Benefit",
+        body: "Open the Shortfall Calculator and take the client to the last sheet. There are two graphs to walk through:",
+        steps: [
+          ["Top graph — Break-Even Point", "Show the client the month where the capital balance and market value lines cross. This is when they break even with the bank — and when they could consider cancelling the product if they choose to."],
+          ["Bottom graph — Highest Risk Period", "Identify the month where the shortfall gap is at its widest. This is the client's highest risk point."]
+        ],
+        say: "At the highest risk period — by that point you would have only paid a total of R[monthly premium × months] in premiums, but you would be protected from a shortfall of R[shortfall amount at that point]. That's the value of this product in one number.",
+        body2: "Use the formula: Monthly Premium × Months to Highest Risk = Total Premiums Paid. Read the shortfall amount off the graph at that same month. Present both numbers side by side — the cost vs the protection.",
+        objs: []
+      },
+      {
+        phase: "Step 4 of 7 — Make it real",
+        title: "Make the risk tangible",
+        say: "Most people can't cover a R5,000–R15,000 unexpected cost without taking credit — now imagine that plus a shortfall.",
+        body: "Keep it conversational. Don't go statistical. Real-world relatability lands harder than numbers.",
+        objs: []
+      },
+      {
+        phase: "Step 5 of 7 — The loyalty bonus",
+        title: "The cherry on the cake — Loyalty Bonus",
+        body: "There is one more benefit most clients don't know about.",
+        steps: [
+          ["3% Loyalty Bonus", "In the event of a total loss, the client earns a 3% loyalty bonus on the claim amount"],
+          ["Maximum R18,000", "The loyalty bonus is capped at R18,000"],
+          ["Next purchase benefit", "If the client repurchases from the same dealer, this bonus can be applied directly to their next vehicle purchase"]
+        ],
+        say: "So if something happens and you replace your vehicle here, you walk in with up to R18,000 already working for you on the next deal. That's the cherry on the cake.",
+        body2: "Use this as a closing lever — it rewards loyalty and ties the client back to the dealership.",
+        objs: []
+      },
+      {
+        phase: "Step 6 of 7 — Present options",
+        title: "Give them a choice — never a yes/no",
+        steps: [
+          ["A — Shortfall + Excess", "Removes the full financial exposure on both fronts"],
+          ["B — Return to Invoice", "Removes the risk AND restores their original purchase position"]
+        ],
+        close: "Would you prefer to break even, or be put back in the position you started in?",
+        objs: [
+          { q: "My insurance offers this cheaper", a: "They usually only cover part of the risk. This removes both your excess AND your shortfall — not one or the other." },
+          { q: "I already have shortfall cover", a: "Then you're covered for the debt. This just removes your cash exposure as well — no surprises at claim stage." },
+          { q: "I'll take the risk", a: "Most people only realise the impact when they need to find cash immediately. This ensures that situation never becomes a problem." }
+        ]
+      },
+      {
+        phase: "Step 7 of 7 — Close",
+        title: "Upgrade lever + next product",
+        body: "Shortfall protects the loan. RTI protects the full investment. Use especially on higher-value vehicles, long finance terms, and clients with deposits.",
+        crossSell: { label: "Cosmetic Plan", product: "cosmetic" },
+        reminders: [
+          "Download the calculator before the conversation starts",
+          "Always ask about their excess first — never skip this",
+          "Walk through both graphs — top for break-even, bottom for risk",
+          "Use the premium vs benefit calculation — make the number real",
+          "Mention the loyalty bonus — it's the closer",
+          "Never lead with price",
+          "Give a choice between options (never yes/no)"
+        ],
+        summary: "Remove both the cash risk and the debt — full protection, loyalty bonus, no surprises.",
+        objs: []
+      }
+    ]
+  },
+  {
+    id: "protection", label: "Protection Plan",
+    steps: [
+      {
+        phase: "Step 1 of 6 — Open",
+        title: "Lead with the living benefits — not death",
+        say: "Most people insure for death — but the biggest financial opportunity is actually protecting what happens while you're still alive.",
+        body: "Alternative: \"If your income stopped tomorrow due to illness, injury, or retrenchment — what would happen to your vehicle repayments?\"",
+        objs: []
+      },
+      {
+        phase: "Step 2 of 6 — Anchor the risk",
+        title: "Death vs living benefits",
+        steps: [
+          ["Death", "Once-off event — covered by most existing policies"],
+          ["Disability", "Ongoing — income stops but commitments don't"],
+          ["Dread disease", "Treatment costs AND income loss simultaneously"],
+          ["Retrenchment", "No fault — but full financial exposure remains"]
+        ],
+        say: "The real benefit is protecting your income — so your financial commitments are always covered.",
+        objs: []
+      },
+      {
+        phase: "Step 3 of 6 — Personalise",
+        title: "Make it about their situation (KYC)",
+        say: "Based on your situation, your biggest risk would likely be ______.",
+        body: "Fill in the blank based on what you already know. Then build the consequence chain: missed payments → repossession → credit profile damage → difficulty getting future finance. Make each step feel real.",
+        objs: []
+      },
+      {
+        phase: "Step 4 of 6 — Price reframe",
+        title: "Break the price anchor — never go straight to premium",
+        say: "Is 95 cents a lot of money? Can you really do anything with it?",
+        steps: [
+          ["95c per R1,000", "Death cover"],
+          ["R1.30 per R1,000", "Death + Disability + Dread Disease"],
+          ["R1.60 per R1,000", "Full cover — all living benefits included"]
+        ],
+        say2: "You're not paying a large premium — you're paying a small amount per R1,000 to protect your full financial obligation.",
+        body: "Pre-price check: \"So if your income is interrupted for any reason, your vehicle and financial position are protected — does that make sense?\"",
+        objs: []
+      },
+      {
+        phase: "Step 5 of 6 — Add death last",
+        title: "Death cover is the addition — not the lead",
+        body: "\"And death cover is included as a standard part of the policy.\" Say this here — not at the start.",
+        close: "Would you prefer to protect only certain risks, or make sure your full financial obligation is covered regardless of what happens?",
+        objs: [
+          { q: "It's too expensive", a: "Break it down — it's a small amount per R1,000. The value is in protecting the full obligation, not looking at the monthly figure in isolation." },
+          { q: "I already have life cover", a: "That protects your family. This protects you — while you're still financially active and exposed to income loss." },
+          { q: "I'll increase my life cover", a: "Increases require new underwriting — your health profile may affect the full premium. This rate is locked in for the full term." },
+          { q: "Non-underwritten policies", a: "They often require proof at claim stage that no pre-existing conditions existed. That creates uncertainty exactly when it matters most." }
+        ]
+      },
+      {
+        phase: "Step 6 of 6 — Close",
+        title: "Wrap up and move",
+        crossSell: { label: "Top-Up Cover", product: "shortfall" },
+        reminders: [
+          "Never lead with total premium",
+          "Always explain cost per R1,000 first",
+          "Sell income protection — not life cover",
+          "Personalise using KYC — fill in the blank",
+          "Add death benefit last, not first"
+        ],
+        summary: "Protect the ability to keep the vehicle — small cost per R1,000, large financial protection.",
+        objs: []
+      }
+    ]
+  },
+  {
+    id: "rti", label: "RTI",
+    steps: [
+      {
+        phase: "Step 1 of 6 — Open",
+        title: "Reframe: investment protection, not insurance",
+        say: "When you buy a vehicle, your biggest risk is not the accident — it's the depreciation you can't recover.",
+        body: "Alternative: \"If your vehicle is written off a year from now, insurance won't give you what you paid — they'll give you what it's worth then.\" This immediately moves the conversation away from insurance into investment protection.",
+        objs: []
+      },
+      {
+        phase: "Step 2 of 6 — Anchor the gap",
+        title: "Show the depreciation gap with real numbers",
+        dynamicRTI: true,
+        objs: []
+      },
+      {
+        phase: "Step 3 of 6 — Use the scenario",
+        title: "Choose the right scenario for this client",
+        scenarioSelector: true,
+        objs: []
+      },
+      {
+        phase: "Step 4 of 6 — Price reframe",
+        title: "Break the price anchor — never go to premium first",
+        say: "Is R1.15 a lot of money? Can you really do anything with it?",
+        steps: [
+          ["R1.15 per R1,000", "Full vehicle investment protected — closes the entire depreciation gap"]
+        ],
+        say2: "You're not insuring the car — you're protecting the money you used to buy it.",
+        body: "Pre-price check: \"So instead of losing money to depreciation, your full investment is protected in a total loss — does that make sense?\"",
+        objs: []
+      },
+      {
+        phase: "Step 5 of 6 — Options & close",
+        title: "Present options, then close",
+        steps: [
+          ["A — RTI Cover", "Investment protection — closes the depreciation gap"],
+          ["B — RTI + Excess Protector", "Enhanced — removes the cash exposure on top of the gap"]
+        ],
+        close: "Would you prefer to absorb the depreciation risk yourself, or protect the full amount you invested in the vehicle?",
+        objs: [
+          { q: "I paid cash, I don't need cover", a: "That's exactly why this matters — it's your own money at risk, not the bank's." },
+          { q: "Insurance will pay me out", a: "They will — but at market value, not what you paid. The difference is what you lose." },
+          { q: "I'll just add money if something happens", a: "This just ensures you don't have to dip into your savings again unexpectedly." }
+        ]
+      },
+      {
+        phase: "Step 6 of 6 — Close",
+        title: "Upgrade lever + next products",
+        body: "Best used on: high-value vehicles, clients buying with savings, premium and prestige brands, gifting scenarios (parent to child).",
+        crossSell: { label: "Cosmetic Plan", product: "cosmetic" },
+        reminders: [
+          "Do NOT position as an insurance add-on",
+          "Sell depreciation risk — use real numbers",
+          "Always explain price per R1,000",
+          "Anchor on the client's own money at risk",
+          "No technical language"
+        ],
+        summary: "Protect the money used to buy the vehicle — depreciation doesn't become the client's problem.",
+        objs: []
+      }
+    ]
+  },
+  {
+    id: "cosmetic", label: "Cosmetic Plan",
+    steps: [
+      {
+        phase: "Step 1 of 6 — Open",
+        title: "Start inside the vehicle — lowest resistance",
+        say: "Most people focus on scratches outside the vehicle — but the damage you live with every day is usually on the inside.",
+        body: "Alternative: \"You spend your time inside the vehicle, not outside it — so let's start where it affects your daily driving experience most.\" Avoids the insurance comparison immediately.",
+        objs: []
+      },
+      {
+        phase: "Step 2 of 6 — Build interior value",
+        title: "Make interior damage real and relatable",
+        steps: [
+          ["Car seats", "Child seats damaging leather or fabric over time"],
+          ["Door panels", "Scratches from bags, shoes, loading and unloading"],
+          ["Pets", "Marks on seats, trims, and boot liners"],
+          ["Stains", "Can't always be fully removed — permanent reduction in value"],
+          ["Dashboard", "Fading and deterioration on panels and surfaces"]
+        ],
+        say: "These are the areas people see and feel every day — and they usually aren't covered by normal insurance benefits.",
+        objs: []
+      },
+      {
+        phase: "Step 3 of 6 — Add exterior + insurance angle",
+        title: "Transition to exterior, then use the insurance angle",
+        body: "\"On the outside, the focus is not only repairs — it's keeping the vehicle in showroom condition to protect resale value.\" Cover: minor dents, scratches, stone chips, paintwork.",
+        say: "Even if your insurance would respond, using it for smaller cosmetic damage can affect your no-claims bonus and may contribute to future premium increases.",
+        body2: "This is the strongest financial angle. It stops the client from dismissing the product as duplicated cover.",
+        objs: []
+      },
+      {
+        phase: "Step 4 of 6 — Position",
+        title: "Value positioning before price",
+        body: "\"This protects the vehicle where everyday use causes damage, while also helping you avoid unnecessary insurance claims for smaller repairs.\"",
+        say: "So we're protecting the inside where you experience the vehicle daily, and the outside to maintain its condition and protect your insurance profile — does that make sense?",
+        objs: []
+      },
+      {
+        phase: "Step 5 of 6 — Options & close",
+        title: "Present options, then close",
+        steps: [
+          ["A — Interior + Exterior combined", "Full cosmetic protection — best overall value"],
+          ["B — Extended term / higher option", "Greater value over a longer ownership period"]
+        ],
+        close: "Would you prefer to protect only certain areas, or keep the full vehicle looking its best while protecting resale value?",
+        objs: [
+          { q: "My insurance already covers that", a: "Insurance may help with certain claims, but most clients don't want to use insurance for smaller repairs — it can affect premiums and no-claims history." },
+          { q: "I can live with small scratches", a: "Over time those marks add up — and at resale or trade-in, condition matters more than people expect." },
+          { q: "It's too expensive for cosmetic damage", a: "Individually these repairs add up quickly. This gives controlled protection at a much lower cost than repeated individual repairs." }
+        ]
+      },
+      {
+        phase: "Step 6 of 6 — Close",
+        title: "Upgrade triggers + next product",
+        body: "Upgrade on: clients keeping the vehicle longer than 2 years → extended term. Larger vehicles → bigger panels, higher repair cost. Premium models. Clients with children or pets.",
+        crossSell: { label: "Tyre & Rim", product: "tyre" },
+        reminders: [
+          "Start interior — never exterior first",
+          "Sell daily-use risk, not 'scratches'",
+          "Use the no-claims / premium increase angle",
+          "Position resale as a real financial benefit",
+          "Never open with price"
+        ],
+        summary: "Protect daily condition, preserve resale value, reduce unnecessary insurance claims.",
+        objs: []
+      }
+    ]
+  },
+  {
+    id: "tyre", label: "Tyre & Rim",
+    steps: [
+      {
+        phase: "Step 1 of 5 — Open",
+        title: "Lead with guaranteed value — not risk",
+        say: "Did you know that annual wheel alignment, balancing, and rotation aren't covered by your service plan or warranty?",
+        body: "Alternative: \"There are tyre-related costs you'll incur every year that aren't covered anywhere else.\" This eliminates 'I don't need this' before they say it — because they're already going to spend the money.",
+        objs: []
+      },
+      {
+        phase: "Step 2 of 5 — Two-part value",
+        title: "Guaranteed costs first — then risk",
+        steps: [
+          ["Alignment, balancing, rotation, nitrogen", "Guaranteed every year — they recover value without any claim"],
+          ["Potholes, sidewall, foreign objects, malicious", "Unpredictable — but one of the most common unexpected costs"]
+        ],
+        say: "This is one of the few products with both guaranteed yearly value AND unpredictable risk protection.",
+        objs: []
+      },
+      {
+        phase: "Step 3 of 5 — Upsell levers",
+        title: "AWD risk and rim cost — use both",
+        body: "AWD / 4Motion vehicles: \"You can't always replace just one tyre — you may need two or more due to drivetrain requirements.\" This doubles or multiplies the cost unexpectedly.",
+        say: "In most cases where a tyre is damaged, the rim is also affected — and modern alloy rims can cost R15,000 or more.",
+        body2: "The rim cost angle is your strongest move to get the client to the higher cover option.",
+        objs: []
+      },
+      {
+        phase: "Step 4 of 5 — Options & close",
+        title: "Present options, then close",
+        steps: [
+          ["A — Standard cover", "Tyre risks + guaranteed maintenance value built in"],
+          ["B — Enhanced cover", "Higher-value tyres + rim replacement scenarios covered"]
+        ],
+        close: "Would you prefer basic protection, or cover that fully protects you if both the tyre and rim are damaged?",
+        objs: [
+          { q: "Our roads are fine, I don't need this", a: "That's exactly why we start with the guaranteed benefits — you recover value every year, even without ever making a claim." },
+          { q: "I've had this before and never used it", a: "That's the ideal scenario — and in the meantime you still benefited from the maintenance value built into the product." },
+          { q: "I'll take the risk", a: "Tyre and rim damage is one of the most common unexpected vehicle costs — and it almost always happens without warning." }
+        ]
+      },
+      {
+        phase: "Step 5 of 5 — Close",
+        title: "Upgrade triggers + next product",
+        body: "Best on: SUVs, AWD, 4x4 vehicles. Performance vehicles. Large or low-profile tyres. Premium and luxury vehicles.",
+        crossSell: { label: "Top-Up Cover", product: "shortfall" },
+        reminders: [
+          "Always start with guaranteed maintenance value",
+          "Do NOT lead with potholes",
+          "Position as maintenance + protection — not insurance",
+          "Use rim cost as your upsell trigger",
+          "Bring in AWD risk where the vehicle warrants it",
+          "Avoid insurance language entirely"
+        ],
+        summary: "Guaranteed yearly value + protection from one of the most common and expensive unexpected costs.",
+        objs: []
+      }
+    ]
+  }
+];
+
+let pIdx = 0, sIdx = 0, activeObj = -1, showNewObj = false, activeScenario = 0;
+
+// $ is defined in shared state block above
+
+// ── Start screen ──
+function handleStart() {
+  const fn = $('inputFirstName').value.trim();
+  const sn = $('inputSurname').value.trim();
+  let valid = true;
+
+  if (!fn) {
+    $('inputFirstName').classList.add('error');
+    $('errFirstName').classList.add('show');
+    valid = false;
+  } else {
+    $('inputFirstName').classList.remove('error');
+    $('errFirstName').classList.remove('show');
+  }
+  if (!sn) {
+    $('inputSurname').classList.add('error');
+    $('errSurname').classList.add('show');
+    valid = false;
+  } else {
+    $('inputSurname').classList.remove('error');
+    $('errSurname').classList.remove('show');
+  }
+  if (!valid) return;
+
+  const grp = $('inputGroup').value.trim();
+  if (!grp) {
+    $('inputGroup').classList.add('error');
+    $('errGroup').classList.add('show');
+    valid = false;
+  } else {
+    $('inputGroup').classList.remove('error');
+    $('errGroup').classList.remove('show');
+  }
+  if (!valid) return;
+
+  bmFirstName = fn;
+  bmSurname = sn;
+  bmGroup = grp;
+
+  $('headerBmName').textContent = fn + ' ' + sn + ' · ' + grp;
+  $('startScreen').style.display = 'none';
+  $('seqGreeting').textContent = 'Hi ' + fn + ' — one more step';
+  $('seqScreen').classList.add('visible');
+  // Show top nav once logged in
+  $('topNav').classList.add('visible');
+}
+
+// Allow Enter key on start screen
+document.addEventListener('keydown', e => {
+  if (e.key === 'Enter' && $('startScreen').style.display !== 'none') handleStart();
+});
+
+// ── Sequencing ──
+function handleSequenceSelect(type) {
+  transactionType = type;
+  // Update deal screen badge and show/hide deposit
+  $('dealBadge').textContent = type === 'finance' ? '💳 Finance Deal' : '💵 Cash Purchase';
+  $('depositField').style.display = type === 'cash' ? 'none' : 'block';
+  // Clear inputs
+  $('inputInvoice').value = '';
+  if ($('inputDeposit')) $('inputDeposit').value = '';
+  $('sumInsuredDisplay').style.display = 'none';
+  $('seqScreen').classList.remove('visible');
+  $('dealScreen').classList.add('visible');
+}
+
+function updateSumInsured() {
+  const inv = parseFloat($('inputInvoice').value) || 0;
+  const dep = transactionType === 'cash' ? 0 : (parseFloat($('inputDeposit').value) || 0);
+  const si = Math.max(0, inv - dep);
+  if (inv > 0) {
+    $('sumInsuredDisplay').style.display = 'flex';
+    $('sumInsuredVal').textContent = 'R ' + si.toLocaleString('en-ZA', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+  } else {
+    $('sumInsuredDisplay').style.display = 'none';
+  }
+}
+
+function handleDealDetails() {
+  const inv = parseFloat($('inputInvoice').value);
+  if (!inv || inv <= 0) {
+    $('inputInvoice').classList.add('error');
+    $('errInvoice').classList.add('show');
+    return;
+  }
+  $('inputInvoice').classList.remove('error');
+  $('errInvoice').classList.remove('show');
+
+  dealInvoice = inv;
+  dealDeposit = transactionType === 'cash' ? 0 : (parseFloat($('inputDeposit').value) || 0);
+  dealSumInsured = Math.max(0, dealInvoice - dealDeposit);
+
+  const ids = PRODUCT_SETS[transactionType];
+  activeProducts = ids.map(id => DATA.find(p => p.id === id)).filter(Boolean);
+  pIdx = 0; sIdx = 0; activeObj = -1; showNewObj = false;
+
+  $('dealScreen').classList.remove('visible');
+  // Activate unified session — show selling guide view
+  _sessionActive = true;
+  $('mainTool').classList.add('visible');
+  $('viewSelling').classList.add('visible');
+  $('viewDictionary').classList.remove('visible');
+  $('navSelling').classList.add('active');
+  $('navDict').classList.remove('active');
+  updateDealChip();
+
+  logSgUsage(activeProducts[0].label + ' [' + transactionType.toUpperCase() + ']', '');
+  render();
+}
+
+// ── Form logging ──
+function logSgUsage(productLabel, objectionText) {
+  try {
+    fetch('/api/log', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        firstName: bmFirstName,
+        surname: bmSurname,
+        group: bmGroup,
+        event: productLabel,
+        detail: objectionText || ''
+      })
+    });
+  } catch(e) {}
+}
+// ── Navigation ──
+function switchProduct(i) {
+  pIdx = i; sIdx = 0; activeObj = -1; showNewObj = false;
+  logSgUsage(activeProducts[i].label, '');
+  render();
+}
+function nextStep() { if (sIdx < DATA[pIdx].steps.length) { sIdx++; activeObj = -1; showNewObj = false; activeScenario = 0; render(); } }
+function prevStep() { if (sIdx > 0) { sIdx--; activeObj = -1; showNewObj = false; activeScenario = 0; render(); } }
+function toggleObj(i) { activeObj = activeObj === i ? -1 : i; render(); }
+function selectScenario(i) { activeScenario = i; render(); }
+function jumpTo(id) { const i = activeProducts.findIndex(p => p.id === id); if (i >= 0) switchProduct(i); }
+function restart() { sIdx = 0; activeObj = -1; showNewObj = false; render(); }
+
+function toggleNewObj() {
+  showNewObj = !showNewObj;
+  const f = $('newObjForm');
+  if (f) { f.classList.toggle('show', showNewObj); }
+}
+
+function submitNewObj() {
+  const input = $('newObjInput');
+  const msg = $('objSubmittedMsg');
+  if (!input || !input.value.trim()) return;
+  const text = input.value.trim();
+  logSgUsage(activeProducts[pIdx].label, text);
+  input.value = '';
+  if (msg) { msg.classList.add('show'); }
+  setTimeout(() => {
+    if (msg) msg.classList.remove('show');
+    showNewObj = false;
+    const f = $('newObjForm');
+    if (f) f.classList.remove('show');
+  }, 2500);
+}
+
+// ── Calculator ──
+function updateCalcSidebar() {
+  const pid = activeProducts[pIdx] ? activeProducts[pIdx].id : '';
+  const sidebar = $('calcSidebar');
+  if (CALC_ENABLED.includes(pid)) {
+    sidebar.classList.add('visible');
+    const calc = CALC_PRODUCTS[pid];
+    $('calcProductName').textContent = calc.name;
+
+    // Update deal info display
+    const fmt = v => 'R ' + v.toLocaleString('en-ZA', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+    $('calcInvoiceDisplay').textContent = fmt(dealInvoice);
+    if (transactionType === 'cash') {
+      $('calcDepositRow').style.display = 'none';
+      $('calcSumRow').style.display = 'none';
+    } else {
+      $('calcDepositRow').style.display = 'flex';
+      $('calcSumRow').style.display = 'flex';
+      $('calcDepositDisplay').textContent = fmt(dealDeposit);
+      $('calcSumDisplay').textContent = fmt(dealSumInsured);
+    }
+
+    // Show basis tag
+    const basis = CALC_BASIS[pid];
+    if (basis === 'invoice') {
+      $('calcBasisTag').textContent = 'Premiums calculated on invoice amount';
+    } else if (basis === 'suminsured') {
+      $('calcBasisTag').textContent = 'Premiums calculated on sum insured';
+    } else {
+      $('calcBasisTag').textContent = '';
+    }
+
+    // Show download button only for shortfall/RTI products
+    const dlBtn = $('btnDownloadCalc');
+    if (dlBtn) dlBtn.style.display = (pid === 'shortfall' || pid === 'rti') ? 'flex' : 'none';
+    // Update href with current product context (anchor tag)
+    if (dlBtn && dlBtn.tagName === 'A') {
+      dlBtn.href = APPS_SCRIPT_URL + '?action=shortfall';
+    }
+
+    calcPremiums();
+  } else {
+    sidebar.classList.remove('visible');
+  }
+}
+
+function calcPremiums() {
+  const pid = activeProducts[pIdx] ? activeProducts[pIdx].id : '';
+  if (!CALC_ENABLED.includes(pid)) return;
+  const calc = CALC_PRODUCTS[pid];
+  const container = $('calcOptions');
+
+  // Use correct basis: invoice for shortfall/rti, sumInsured for protection
+  const basis = CALC_BASIS[pid];
+  const si = basis === 'invoice' ? dealInvoice : dealSumInsured;
+
+  if (!si || si <= 0) {
+    container.innerHTML = '<div class="calc-empty">No finance amount captured yet.</div>';
+    return;
+  }
+
+  // Rate per R1000 lookup
+  const RATE_PER_1000 = {
+    shortfall: [0.57, 0.93, 1.11],
+    rti:       [1.15, 1.51, 1.69],
+    protection:[0.93, 1.10, 1.25, 1.30, 1.20, 1.60]
+  };
+  const rates = RATE_PER_1000[pid] || [];
+
+  let html = '';
+  calc.options.forEach((opt, i) => {
+    const premium = opt.calc(si);
+    const rate = rates[i] !== undefined ? rates[i] : null;
+    html += `<div class="calc-option">
+      <div class="calc-option-name">${opt.name}</div>
+      <div class="calc-option-premium${i === calc.options.length - 1 ? ' highlight' : ''}">R ${premium.toFixed(2)} / month</div>
+      ${rate !== null ? `<div style="font-size:11px;color:var(--grey-400);margin-top:3px;">For as little as R${rate.toFixed(2)} per R1,000</div>` : ''}
+    </div>`;
+  });
+  container.innerHTML = html;
+}
+
+// ── Render ──
+function render() {
+  renderTabs();
+  renderProgress();
+  renderCard();
+  renderNav();
+  updateCalcSidebar();
+}
+
+function renderTabs() {
+  $('productTabs').innerHTML = activeProducts.map((p, i) =>
+    `<button class="tab${i === pIdx ? ' active' : ''}" onclick="switchProduct(${i})">${p.label}</button>`
+  ).join('');
+}
+
+function renderProgress() {
+  const p = activeProducts[pIdx];
+  const total = p.steps.length;
+  const done = Math.min(sIdx, total);
+  const pct = total > 0 ? (done / total) * 100 : 0;
+  $('progressProduct').textContent = p.label;
+  $('progressFill').style.width = pct + '%';
+  $('progressLabel').textContent = sIdx >= total ? 'Complete ✓' : `Step ${sIdx + 1} of ${total}`;
+}
+
+function renderCard() {
+  const p = activeProducts[pIdx];
+  const area = $('cardArea');
+  if (sIdx >= p.steps.length) {
+    area.innerHTML = `<div class="card"><div class="complete-card">
+      <div class="complete-icon">✓</div>
+      <div class="complete-title">${p.label} — complete</div>
+      <div class="complete-sub">Move to your next product or restart this conversation guide.</div>
+      <button class="btn-restart" onclick="restart()">↺ Restart this guide</button>
+    </div></div>`;
+    return;
+  }
+
+  const s = p.steps[sIdx];
+  let h = `<div class="card">`;
+
+  // Show notification banner on step 0 if product has one
+  if (sIdx === 0 && p.notification) {
+    h += `<div class="notif-banner"><div class="notif-icon">⚡</div><div class="notif-text">${p.notification}</div></div>`;
+  }
+
+  h += `<div class="card-phase">${s.phase}</div>`;
+  h += `<div class="card-title">${s.title}</div>`;
+
+  // Dynamic RTI depreciation step
+  if (s.dynamicRTI) {
+    const inv = dealInvoice || 500000;
+    const payout = Math.round(inv * 0.80);
+    const loss = inv - payout;
+    const fmt = v => 'R' + v.toLocaleString('en-ZA');
+    h += `<div class="card-body">Based on the captured invoice amount, here is the client's real depreciation exposure:</div>`;
+    h += `<ul class="steps-list">
+      <li><span class="step-key">Purchase price</span><span class="step-val">${fmt(inv)} today</span></li>
+      <li><span class="step-key">Insurer pays out (12–18 months later)</span><span class="step-val">±${fmt(payout)} at market value (−20% depreciation)</span></li>
+      <li><span class="step-key">Their loss</span><span class="step-val">${fmt(loss)} — uncovered, comes from their pocket</span></li>
+    </ul>`;
+    h += `<div class="say-box"><div class="say-label">Say this</div><div class="say-text">"That ${fmt(loss)} difference is not covered — that's your loss."</div></div>`;
+  }
+
+  // Scenario selector step
+  if (s.scenarioSelector) {
+    const scenarios = [
+      {
+        label: "For spouse or child",
+        say: "Imagine you bought this vehicle for your child as a reward. A year later it's stolen. Insurance pays out — but " + (dealInvoice ? 'R' + Math.round(dealInvoice * 0.20).toLocaleString('en-ZA') : 'R80,000') + " less than what you paid. You can't replace the same vehicle. You're forced to downgrade.",
+        body: "Works best with: parents, gifting scenarios, premium brands. Both emotional and logical — let it land before moving on."
+      },
+      {
+        label: "For themselves",
+        say: "You worked hard for this vehicle. If it's written off tomorrow, insurance pays market value — not what you paid. That gap comes directly out of your pocket. This closes it.",
+        body: "Works best with: self-employed clients, professionals, clients who saved for the vehicle. Anchor on their personal financial exposure."
+      },
+      {
+        label: "For their company",
+        say: "For a business asset, the gap between what you paid and what insurance pays out is a direct hit to your balance sheet. This protects the company from an unbudgeted loss on a depreciating asset.",
+        body: "Works best with: business owners, fleet purchases, company vehicles. Frame as asset protection, not personal insurance."
+      }
+    ];
+    h += `<div class="card-body">Select the scenario that fits this client:</div>`;
+    h += `<div class="scenario-tabs">`;
+    scenarios.forEach((sc, i) => {
+      h += `<button class="scenario-tab${activeScenario === i ? ' active' : ''}" onclick="selectScenario(${i})">${sc.label}</button>`;
+    });
+    h += `</div>`;
+    h += `<div class="scenario-content">`;
+    h += `<div class="say-box"><div class="say-label">Say this</div><div class="say-text">"${scenarios[activeScenario].say}"</div></div>`;
+    h += `<div class="card-body">${scenarios[activeScenario].body}</div>`;
+    h += `</div>`;
+  }
+
+  if (s.say) h += `<div class="say-box"><div class="say-label">Say this</div><div class="say-text">"${s.say}"</div></div>`;
+  if (s.body) h += `<div class="card-body">${s.body}</div>`;
+  if (s.steps) {
+    h += `<ul class="steps-list">`;
+    s.steps.forEach(([k, v]) => { h += `<li><span class="step-key">${k}</span><span class="step-val">${v}</span></li>`; });
+    h += `</ul>`;
+  }
+  if (s.say2) h += `<div class="say-box"><div class="say-label">Key positioning line</div><div class="say-text">"${s.say2}"</div></div>`;
+  if (s.body2) h += `<div class="card-body">${s.body2}</div>`;
+  if (s.close) h += `<div class="close-box"><div class="close-label">Close line — say this</div><div class="close-text">"${s.close}"</div></div>`;
+
+  if (s.objs && s.objs.length) {
+    h += `<div class="obj-section"><div class="obj-heading">Handle an objection</div><div class="obj-chips">`;
+    s.objs.forEach((o, i) => {
+      h += `<button class="obj-chip${activeObj === i ? ' active' : ''}" onclick="toggleObj(${i})">"${o.q}"</button>`;
+    });
+    h += `</div>`;
+    s.objs.forEach((o, i) => {
+      h += `<div class="obj-response${activeObj === i ? ' show' : ''}"><div class="obj-q">"${o.q}"</div>${o.a}</div>`;
+    });
+    h += `</div>`;
+
+  // New objection submission — only on steps that have objections
+  h += `<div class="new-obj-section">
+    <button class="new-obj-toggle" onclick="toggleNewObj()">+ Objection not listed? Submit it</button>
+    <div class="new-obj-form${showNewObj ? ' show' : ''}" id="newObjForm">
+      <textarea class="new-obj-input" id="newObjInput" placeholder="Describe the objection you heard and how you handled it..."></textarea>
+      <div class="new-obj-row">
+        <button class="btn-submit-obj" onclick="submitNewObj()">Submit</button>
+        <button class="btn-cancel-obj" onclick="toggleNewObj()">Cancel</button>
+      </div>
+      <div class="obj-submitted-msg" id="objSubmittedMsg">✓ Submitted — thank you. We'll review and add it.</div>
+    </div>
+  </div>`;
+  }
+
+  if (s.reminders) {
+    h += `<div class="reminders">`;
+    s.reminders.forEach(r => { h += `<div class="reminder"><span class="reminder-chk">✓</span><span>${r}</span></div>`; });
+    h += `</div>`;
+  }
+  if (s.summary) h += `<div class="summary-bar">${s.summary}</div>`;
+  if (s.crossSell) {
+    h += `<div class="cross-sell" style="margin-top:12px;font-size:13px;">
+      Next product: <a class="cross-link" onclick="jumpTo('${s.crossSell.product}')">${s.crossSell.label} →</a>
+    </div>`;
+  }
+
+  h += `</div>`;
+  area.innerHTML = h;
+}
+
+function renderNav() {
+  const p = activeProducts[pIdx];
+  $('btnBack').disabled = sIdx === 0;
+  $('btnNext').disabled = sIdx >= p.steps.length;
+  $('btnNext').textContent = sIdx === p.steps.length - 1 ? 'Finish ✓' : 'Next step →';
+}
+// ── Shortfall Calculator Download ──
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz8s-vQvSxl-ywqXKWVQ0SMOBn-ruqfWkSDS0lRksMwyZzl_vkH4B001MZxzV23nP98/exec';
+
+function logDownload() {
+  logSgUsage('Shortfall Calculator Download [' + transactionType.toUpperCase() + '] — Invoice: R' + dealInvoice.toLocaleString('en-ZA'), '');
+  var url = '/api/shortfall?invoice=' + encodeURIComponent(dealInvoice) + '&deposit=' + encodeURIComponent(dealDeposit);
+  window.open(url, '_blank');
+}
+
+// ═══════════════════════════════════════════════════
+// PRODUCT DICTIONARY JS
+// ═══════════════════════════════════════════════════
+
+// ── Product definitions ──
+const PRODUCTS = [
+  {
+    id: 'protection',
+    label: 'Protection Plan',
+    color: '#2563A8',
+    hint: 'GL305 — Underwritten by Guardrisk Life',
+    suggestions: [
+      'What is the exclusion period for pre-existing conditions?',
+      'Who qualifies for retrenchment cover?',
+      'What does Plan B cover?',
+      'How long is the cooling off period?',
+      'What is the maximum insured value?',
+      'Can a second life insured be added?',
+      'What dread diseases are covered?',
+      'What is the waiting period for retrenchment?'
+    ],
+    context: `TRAFICC PROTECTION PLAN (GL305) — OFFICIAL TERMS & CONDITIONS AND TRAINING GUIDE
+
+PRODUCT OVERVIEW:
+A stand-alone long-term insurance policy underwritten by Guardrisk Life Limited (FSP#76), administered by Traficc (FSP#25955). The policy is linked to a specific vehicle finance agreement. The monthly Debit Order reference on bank statements will show as "GUARDRISK".
+
+AVAILABLE PLANS:
+- Plan A: Death + Disability (Permanent & Temporary) + Retrenchment. Rate: R25 + R1.25/R1000. Max entry age: 65. Second insured (Death only): R1.75/R1000
+- Plan B: Death + Disability + Retrenchment + Dread Disease. Rate: R25 + R1.60/R1000. Max entry age: 60. Second insured (Death only): R2.24/R1000
+- Plan C: Death + Disability (Permanent & Temporary). Rate: R25 + R1.10/R1000. Max entry age: 65. Second insured (Death only): R1.54/R1000
+- Plan D: Death + Disability + Dread Disease. Rate: R25 + R1.30/R1000. Max entry age: 60. Second insured (Death only): R1.82/R1000
+- Plan E: Death Cover only. Rate: R25 + R0.925/R1000. Max entry age: 65. No second insured available.
+- Plan F: Death + Retrenchment. Rate: R25 + R1.20/R1000. Max entry age: 65. No second insured available.
+Premium formula: R25 Base Premium + (Rate x Principal Debt/1000). Maximum insured value per insured: R1,000,000.
+Commission: 3.73% of total premium per month (inclusive of VAT).
+Category: Long-Term Insurance Category B1-A (Tier 2).
+
+DEATH BENEFIT:
+The total outstanding balance on the finance agreement will be paid if all instalments due in terms of the finance agreement have been paid up to date. Maximum liability across all Traficc/Guardrisk Protection Plan policies per life: R1,000,000. Available to First Life on Plans A, B, C, D, E & F. Available to Second Life on Plans A, B, C & D (death only).
+
+PERMANENT DISABILITY BENEFIT (Plans A, B, C & D — First Life only):
+Pays the total outstanding balance on the finance agreement. Requires certification by an independent medical practitioner/specialist. The disability must result from sickness, injury or accident, must be permanent and incurable, and must render the insured permanently unable to pursue their normal/similar occupation and permanently unable to earn an income. Includes Occupational Disability. Second Life is NOT covered.
+
+TEMPORARY DISABILITY BENEFIT (Plans A, B, C & D — First Life only):
+Pays (after a deferred period of 31 days) the monthly instalments (or proportion thereof if partial loss of income) for the period the insured is unable to earn income, until: (1) policy expiry, (2) recovery, (3) permanent disablement, or (4) death — whichever occurs first. Requires certification by a qualified medical practitioner. Disability must result in total loss of income for at least one month. Second Life is NOT covered.
+
+DREAD DISEASE BENEFIT (Plans B & D — First Life only):
+Pays the total outstanding balance on the finance agreement on diagnosis of: Heart attack, Stroke, Coronary Artery Surgery (requiring surgery — angioplasty excluded), Cancer (including Leukaemia and Hodgkin's Disease, but excluding stage 1 Hodgkin's, all skin cancers, cancer-in-situ of the cervix), Kidney failure (end-stage renal failure requiring dialysis), Organ transplant (kidney, heart, lung, pancreas, bone marrow), Paraplegia (total/irreversible loss of both legs or both arms), Serious burns (third degree burns covering at least 20% of body surface), Coma (unconsciousness for at least 96 hours with life support and permanent neurological deficit). All diagnoses must be supported by clinical, radiological, histological and laboratory evidence. Second Life is NOT covered.
+
+RETRENCHMENT BENEFIT (Plans A, B & F — First Life only):
+Pays the monthly instalments to the finance house while the insured is unemployed due to involuntary retrenchment. Excludes the first instalment due immediately after the date commencement of retrenchment. Maximum period: 6 months per retrenchment claim. Unlimited retrenchment claims during the policy term. Payable only for involuntary unemployment due to: new technology introduction by employer, reorganisation by employer, or staff reductions due to adverse conditions. Second Life is NOT covered.
+
+RETRENCHMENT EXCLUSIONS — NO BENEFIT PAYABLE IF:
+1. Claim within the waiting period of 90 days from policy commencement
+2. Insured is self-employed (sole proprietor, partner, CC member, sole director, family business, independent contractor), a student, or a pensioner
+3. Unemployment due to expiry of non-renewable fixed term contract or temporary/casual contract
+4. Lawful dismissal, voluntary retrenchment, termination of employment, resignation, or retirement
+5. Participation in an unprotected strike
+6. The insured, employer, or finance institution was aware/received notice of retrenchment during the 3 months preceding policy commencement
+7. After re-employment or policy expiry
+8. First Life successfully claims death, dread disease, or permanent disability benefit
+
+SECTION 5 — EXCLUSIONS (Death, Disability & Dread Disease):
+Pre-existing conditions: No medical examination is required, but NO AMOUNT IS PAYABLE during the 12-month period after the Commencement Date (or Reinstatement Date) if the illness, injury, or condition that contributed to the claim existed in the 12 months PRIOR to the Commencement Date.
+Suicide/self-inflicted: No payment during the 12-month period after Commencement or Reinstatement for suicide, self-inflicted injury or illness, whether intended or not.
+General exclusions (no payment if claim is due to): Driving under influence of alcohol/drugs (exceeding statutory limit), voluntary exposure to danger/obvious risk, intentional excessive alcohol/drug intake (medical administration excluded), participation in criminal acts, war/invasion/civil war/riot/civil commotion.
+Special exclusions (Death, Permanent & Temporary Disability): Alcohol/drugs not prescribed by a doctor, breach of criminal law, airborne pursuits (except as passenger in certified aircraft with licensed pilot), war/terrorism/insurgency, refusal of medical treatment that would improve the disabling condition.
+
+ENTRY/EXIT AGE & SECOND INSURED:
+Plans with Dread Disease (B & D): Max entry age 60. Plans without Dread Disease (A, C, E & F): Max entry age 65. Plan E: Max entry age 70 for Death only. No maximum exit age. Second Insured can be added to Plans A, B, C or D — Death Cover ONLY. No second insured on Plans E & F.
+
+COOLING OFF PERIOD:
+31 days from receipt of policy documents. Client can cancel and receive full premium refund provided no claim event has occurred.
+
+PREMIUM & GRACE PERIOD:
+Premium due in advance on the Due Date. Grace period: 31 days from Due Date (covered during grace period; policy lapses if premium not received by end of grace period). Grace period does NOT apply to the first premium. Stop payment/closed account: cover ends from last period premium was received. Double deduction: if debit order unmet, will be collected with following month's debit — if that also fails, policy lapses. Premium may be reviewed annually with 31 days written notice.
+
+MAXIMUM LIABILITY:
+R1,000,000 per insured across all Traficc/Guardrisk Protection Plan policies. If total coverage exceeds R1,000,000, policies will be voided from commencement date and excess premiums refunded.
+
+POLICY DURATION:
+Policy remains in force for the full term of the finance agreement, or until: client cancellation, stop payment, bank repossession, or a claim for Death/Permanent Disability/Dread Disease which then cancels cover.
+
+COOLING OFF & CANCELLATION:
+Cooling off: 31 days. After cooling off: 31 calendar days cancellation notice required. Cancellation contact: admin@traficc.co.za or 021 425 5180.
+
+CLAIMS PROCEDURE:
+Contact the Credit Grantor who must submit the claim to Traficc within 60 days of the claim event. All documentation must be delivered within 6 months. Claims contact: Tel: 0861 872 3422 or 021 425 7066. Email: claims@traficc.co.za. Hours: Mon-Fri 08:30-17:00.
+
+CLAIM REPUDIATION:
+If claim repudiated, insured has 90 days to make representation to Guardrisk. Guardrisk has 45 days to respond. If still unsatisfied: 180 days to institute legal action. Claim invalid after 365 days unless legal action commenced.
+
+IMPORTANT DISCLOSURES TO CLIENT:
+- Monthly debit order reference on bank statement: "GUARDRISK"
+- No medical examination required
+- Policy is linked to one credit agreement per policy
+- Premiums paid in South African Rands
+- Policy acquires no surrender, loan or paid-up values
+- Insurer: Guardrisk Life Limited (FSP#76)
+- Underwriting Manager: Traficc (Pty) Ltd (FSP#25955)`
+  }
+  ,
+  {
+    id: 'completecare',
+    label: 'Complete Care',
+    color: '#16A34A',
+    hint: 'G305 — Mechanical Warranty Gap Cover — Guardrisk Insurance',
+    suggestions: [
+      'What vehicles are eligible for Complete Care?',
+      'Which components are covered?',
+      'What is the cooling off period?',
+      'What happens if I miss a service?',
+      'Is wear and tear covered?',
+      'What is the claims procedure?',
+      'Can the policy be transferred to a new owner?',
+      'Are electric vehicles covered?'
+    ]
+  }
+  ,
+  {
+    id: 'topup',
+    label: 'Top-Up Cover',
+    color: '#2563A8',
+    hint: 'G305 — Shortfall Cover — Guardrisk Insurance',
+    suggestions: [
+      'What is the shortfall benefit?',
+      'What does Violation of Conditions of Underlying Policy cover?',
+      'What is the Loyalty Bonus?',
+      'What is the Deposit Protector?',
+      'What is the cooling off period?',
+      'What is the maximum liability for shortfall?',
+      'What happens if my car insurance is cancelled?',
+      'How do I submit a shortfall claim?'
+    ]
+  }
+  ,
+  {
+    id: 'rti',
+    label: 'RTI',
+    color: '#B87A10',
+    hint: 'G305 — Return to Invoice — Guardrisk Insurance',
+    suggestions: [
+      'What is the maximum liability for Total Loss?',
+      'Who qualifies for RTI — cash or finance buyers?',
+      'What is the Invoice Price definition?',
+      'What is the Loyalty Bonus?',
+      'What vehicle age and mileage limits apply?',
+      'What is the cooling off period?',
+      'Are modifications covered?',
+      'What happens if my car insurance lapses?'
+    ]
+  }
+  ,
+  {
+    id: 'depositprotector',
+    label: 'Deposit Protector',
+    color: '#7C3AED',
+    hint: 'G305 — Standalone Deposit Protection — Guardrisk Insurance',
+    suggestions: [
+      'What is the maximum benefit payable?',
+      'How is the deposit benefit calculated?',
+      'What happens if my insurer makes a goodwill payment?',
+      'What is the cooling off period?',
+      'What vehicles are eligible?',
+      'How do I submit a deposit claim?',
+      'What is the grace period for premium payment?',
+      'Does this differ from the Deposit Protector in Top-Up?'
+    ]
+  }
+  ,
+  {
+    id: 'tyrerim',
+    label: 'Tyre & Rim',
+    color: '#0F766E',
+    hint: 'G306R — Tyre & Rim Warranty — Guardrisk Insurance',
+    suggestions: [
+      'What are the Bronze, Silver, Gold and Platinum options?',
+      'What is an Insured Event?',
+      'Is there a claim excess?',
+      'What tyres are not covered?',
+      'How do I submit a tyre claim?',
+      'What is the wheel balancing and alignment benefit?',
+      'Can the policy be transferred to a new owner?',
+      'What does the roadside assistance cover?'
+    ],
+    context: `TRAFICC TYRE & RIM WARRANTY (G306R) — OFFICIAL TERMS & CONDITIONS
+
+PRODUCT OVERVIEW:
+A voluntary stand-alone short-term insurance policy underwritten by Guardrisk Insurance Company Limited (FSP#75), administered by Traficc (FSP#25955). Cover commences on the day the policy is purchased. No claim excesses apply. Unlimited mileage. Cover is for either 24 or 36 months (elected at purchase). Pre-delivery tyre inspection mandatory at inception.
+
+POLICY OPTIONS AND LIMITS OF LIABILITY:
+- Bronze: R5,000 per claim event / R20,000 maximum per policy
+- Silver: R7,500 per claim event / R30,000 maximum per policy
+- Gold: R11,000 per claim event / R44,000 maximum per policy
+- Platinum: Per claim event limit subject to R80,000 maximum per policy
+All amounts are VAT inclusive. No excess applies.
+
+INSURED EVENT (Section 2s):
+Accidental or malicious damage (excluding abuse by insured) to insured tyres and rims — resulting from a cut, bruise, impact break or puncture. Excludes cosmetic, chemical or atmospheric damage. Puncture repair is included as an additional benefit.
+
+INSURED TYRES AND RIMS (Section 2t):
+The four tyres and rims fitted to the vehicle at policy inception. For vehicles requiring two tyres replaced on the same axle per manufacturer specification, this counts as two of the four tyres covered.
+
+COVER PERIOD TERMINATION — whichever occurs first (Section 3):
+(a) Tread depth reaches or falls below legal minimum (1mm)
+(b) Expiry of elected 24 or 36-month period
+
+WHAT IS COVERED (Section 5):
+- Repair and/or replacement of fitted tyres and rims (including wheel covers and hubcaps) following accidental or malicious damage
+- Tyre repair benefit: if tyre is safely repairable, policy pays repair cost only
+- Tyre replacement benefit: if tyre is irreparable, policy pays up to the per claim event limit
+- Tyre replacement covers 4 tyres total across the policy period (or 2 claim events if 2 tyres replaced per event per manufacturer spec)
+- Replacement benefit ceases once claims paid on all 4 tyres (puncture repairs excluded from this count)
+- Total aggregate of all claims cannot exceed current trade value of vehicle
+
+WHEEL BALANCING AND ALIGNMENT BENEFIT (Section 5):
+Additional benefit: one claim event per 12-month period from inception. Includes wheel balancing, alignment and nitrogen fill. Must be pre-approved by Traficc. Must use Authorised Dealer.
+
+CLAIMS PROCEDURE (Section 9b):
+1. Lodge claim with Traficc claims centre for pre-approval BEFORE repairs (except puncture repairs — these do not need pre-approval)
+2. Must be submitted within 31 days of the Date of Loss
+3. Complete Tyre or Rim loss/damages report and email with digital photo of damage
+4. On pre-approval, take vehicle to an Authorised Dealer for repair/replacement
+5. Email invoice to Traficc — invoice must show current odometer reading
+6. Traficc reimburses the amount covered under the policy
+Claims contact: Tel: 0861 872 3422 or 021 425 7066. Email: claims@traficc.co.za. Hours: Mon-Fri 08:30-17:00 (24/7 after-hours recording).
+
+AUTHORISED DEALER (Section 2c):
+An accredited tyre and rim fitment centre on Traficc's approved panel.
+
+EXCLUSIONS (Section 8) — NOT COVERED:
+- Tyres on taxis, buses, caravans, trailers, car hire vehicles, vehicles over 3,500kg, racing/competition/sport vehicles, dispatch/courier services, driver tuition, agricultural vehicles
+- Losses beyond the policy period
+- Amounts exceeding the sum insured
+- Any tyres and rims beyond the insured number on the policy schedule
+- Claim where damaged tyre batch number does not match recorded batch number
+- Tyres below legal tread limit (1mm) when incident occurs
+- Cosmetic, chemical or atmospheric damage
+- Manufacturing defects in workmanship or materials
+- Loss or damage to the vehicle itself
+- Damage to vehicle or injury to driver from road hazard
+- Damage where another part of the vehicle is also damaged in the same event
+- Dishonesty of insured's principal, director, partner, employee or agent
+- Recklessness by insured or driver
+- Claims not submitted within 31 days of Date of Loss
+- Fire or theft of insured tyres and rims
+- Abuse (under/over inflation, vandalism, malicious acts by insured)
+- Mechanical irregularities of the vehicle causing tyre/rim damage
+- Total loss vehicle or vehicle accident claims
+- Incorrect tyre pressure damage
+- Damage from incorrect wheel balancing, defective steering, geometry/tracking or defective suspension
+- Repairs undertaken without prior authorisation from Traficc (except puncture repairs)
+
+SPECIFIC EXCEPTIONS (Section 7):
+- Loss or damage outside South Africa
+- Loss from an accident/collision that would ordinarily form part of a comprehensive motor insurance claim (whether or not insured has such a policy)
+
+TRANSFERABILITY (Section 4):
+Policy may be transferred to subsequent owner if policy is still valid and all insured tyres comply with legal tread limit. Request must be submitted in writing to Traficc with new owner's details. Traficc may request photos prior to transfer approval. Policy may NOT be transferred from one vehicle to another.
+
+VEHICLE ELIGIBILITY (Section 2hh):
+Light motor vehicles, mini-buses, light delivery vehicles and panel vans with GVM not exceeding 3,500kg. Used for business, social, domestic and pleasure purposes.
+
+COOLING OFF (Section 10):
+14 days from receipt of documents. Full refund if cancelled within this period and no claim event occurred.
+
+GRACE PERIOD (Section 11b):
+15 days from Due Date. Not covered during outstanding period until premium paid. Policy cancelled if payment not received within grace period.
+
+CANCELLATION (Section 9a):
+Within 14 days: full refund (no claim event). After 14 days: pro rata refund of unused period less all costs (commission, binder fees, underwriting fees, admin costs), provided no claim paid or outstanding. If policy financed: refund goes to financing institution. Traficc may cancel with 31 days written notice. All cancellation requests in writing to cancel@traficc.co.za.
+
+CLAIM REPUDIATION (Section 9b):
+If repudiated, client has 90 days to make written representation to Guardrisk. Guardrisk has 45 days to respond. Client has further 180 days to institute legal action. Claim invalid after 365 days unless legal action commenced. Complaints: National Financial Ombud Scheme — Tel: 0860 800 900, Email: info@nfosa.co.za.
+
+ROADSIDE ASSISTANCE (Annexures A–F via Europ Assistance):
+24/7 roadside assistance across South Africa, Botswana, Namibia, Lesotho and Swaziland. Unlimited incidents per benefit year. Contact: 086 100 03 20 or 011 991 83 02.
+Services included:
+- Mechanical/electrical breakdown: towing to nearest dealer or safekeeping. Free storage up to 72 hours.
+- Vehicle won't start: jump start service dispatched (excludes parts/lubricants). If unresolved, towed to dealer.
+- Flat tyre: service provider dispatched to change tyre at roadside or non-roadside. If no spare: towed to approved tyre facility.
+- Out of fuel: 10 litres supplied (max 2 incidents per year). Non-roadside locations: member-to-pay.
+- Locked keys in car: locksmith dispatched (call-out + 1 hour labour covered; excludes parts/keys). Smart key vehicles towed to dealer (up to R500).
+- Bonus assistance (100km+ from home): accommodation (1 night), taxi/rental car, or repatriation tow — up to R1,000.
+- Accident Manager: towing, transport, car hire, medical transport, legal advice, first notification of loss.
+- Emergency Medical Services (vehicle accidents only): pre-arrival instructions, emergency medical response, transfer to nearest appropriate hospital.
+- Personal Health Advisor: 24-hour telephonic health advice in 9 languages.
+- Trip Monitor: 24-hour monitoring service at 30-minute intervals for safe travel.
+- Directions Assist: 24-hour directions service within South Africa.
+Roadside exclusions: accident/collision/hijack costs (member's insurer's account), vehicles not on contract, cost of parts/batteries/tyres/locks, costs not authorised by Europ Assistance, unroadworthy vehicles, vehicle recovery costs.
+
+COMMISSION & FEES:
+- Once-off commission: 12.5% of premium
+- Binder fee: 3.5% of premium or R300, whichever is lesser
+- Traficc underwriting/admin binder fee: maximum 18% of premium
+
+IMPORTANT DISCLOSURES:
+- No claim excesses
+- Unlimited mileage
+- Pre-delivery inspection required at inception
+- Policy automatically lapses when tread reaches legal minimum or elected period expires
+- Insurer: Guardrisk Insurance Company Limited (FSP#75)
+- Underwriting Manager: Traficc (FSP#25955)`
+  }
+  ,
+  {
+    id: 'cosmeticpremium',
+    label: 'Cosmetic Plan — Premium',
+    color: '#9333EA',
+    hint: 'G303 — Premium Cosmetic Plan — Traficc Maintenance Plans',
+    suggestions: [
+      'What is the monthly exterior benefit limit?',
+      'What interior benefits are covered?',
+      'What is the waiting period before I can claim?',
+      'How do I submit a cosmetic claim?',
+      'Is pre-existing damage covered?',
+      'What is the cooling off period?',
+      'Can the plan be transferred to a new owner?',
+      'Are PDR dents always repairable under this plan?'
+    ],
+    context: `TRAFICC PREMIUM COSMETIC PLAN (G303) — OFFICIAL TERMS AND CONDITIONS
+
+PRODUCT OVERVIEW:
+This is NOT an insurance product. It is a redeemable maintenance plan administered by Traficc (FSP#25955) and owned by Traficc Maintenance Plans (Pty) Ltd (Reg#2004/031492/07). It covers cosmetic maintenance and restoration of a vehicle's interior and/or exterior resulting from everyday wear and tear. Three variants exist under the Premium tier: Interior Only, Exterior Only, and Combined (Interior and Exterior).
+
+PLAN PERIOD OPTIONS (Section 6):
+24, 36, 48, 60 or 72 months — as elected and noted on the Plan Schedule.
+
+WAITING PERIOD (Section 6 / Section 3h):
+Benefits commence 30 days after the Start Date of the Plan. No claim submitted within the first 30 days will be entertained.
+
+COOLING OFF PERIOD (Section 17):
+14 working days from the Plan Start Date. Cancellation within this period incurs no penalty.
+
+ELIGIBLE VEHICLES (Section 5):
+Light motor vehicles, mini-buses, 4x4 vehicles, 4x2 vehicles, light delivery vehicles and panel vans with GVM not exceeding 3,500kg. Used for business, social, domestic and pleasure purposes. Motorcycles are specifically excluded.
+
+INELIGIBLE VEHICLES (Section 13):
+Vehicles used for car rental, as a taxi, carriage of fare-paying passengers, racing, speed or other contests, rallies, trials, or use on any race-track.
+
+PLAN USAGE RULES (Section 7):
+- One interior claim per month maximum (Combined and Interior Only plans).
+- One exterior claim per month maximum (Combined and Exterior Only plans).
+- Usage is once per month regardless of how many benefits are used in that visit.
+- When the vehicle is brought in, ALL damage to the interior or exterior must be assessed — the client may NOT select only certain items for repair.
+
+BENEFIT LIMITS:
+INTERIOR (Premium Interior Only / Premium Combined):
+- Maximum R3,500 (incl. VAT) per month for interior benefits (Section 8a to 8g).
+
+EXTERIOR (Premium Exterior Only / Premium Combined):
+- Maximum R7,000 (incl. VAT) per month for exterior benefits (Section 8/9a to h).
+- Maximum R7,000 (incl. VAT) per 12-month period for wheels and alloy rims benefit (Section 8/9i) — this is OVER AND ABOVE the monthly exterior limit.
+
+INTERIOR BENEFITS (Section 8 — Premium Interior Only and Premium Combined):
+a) Cigarette burns — repairs to minor burn damage on seats and interior areas.
+b) Delamination of rubber coatings — restoration of delaminating rubber-coated surfaces.
+c) Repair, refurbish, restore or recovering — covers interior trim components including sun visor clip.
+d) Re-spraying — plastic door handles, door panels, faded dashboards, gear levers and steering wheels.
+e) Rips and tears — small rips and tears in seats, gear lever and handbrake covers.
+f) Scuffs and scratches — scratches and scuffs on interior surfaces and armrests.
+g) Sagging or loose headliner — repair and restoration of existing internal roof linings. Convertibles and vehicles with sunroofs are excluded.
+
+EXTERIOR BENEFITS (Section 8/9 — Premium Exterior Only and Premium Combined):
+a) Paintless Dent Removal (PDR) — removes dents and dings from conventional metal panels without affecting factory finish. Only dents suited to PDR technique are covered.
+   PDR Exclusions: dents where paintwork is damaged or metal is stretched; dents requiring painting or panel replacement; ripped/torn body panels; dents requiring body filler or sanding; repairs requiring stripping and re-assembly of panels or bumpers.
+b) Spot repair, paint chip and car paint scratch repair — touch-up and spot repair of paint chips and scratches.
+c) Brush touches of scratches — minor scratches concealed by brush touch or polishing of a specific area (not entire vehicle).
+d) Spot repair — touch-up to paintwork repairable without removal of parts and without blending onto adjacent panels.
+e) Chips — small paint chips repairable by brush touching. Exclusions: no scuffs or series of scratches; no buff and polish of entire vehicle.
+f) Bumper scuffs — cosmetic scratches to plastic bumpers where alignment is unaffected and repair achievable by polishing, brush touch or spot repair.
+g) Tar removal — removal of tar from bodywork using standard autobody detergents and polishes.
+h) Windscreen chip repair — repairable chips that do not compromise driver visibility or roadworthiness. If windscreen cracks during repair, replacement cost is for client's account. Includes repairable damage to headlamps and related glass components.
+i) Wheels and alloy rims — R7,000 (incl. VAT) per 12-month period. This is over and above the monthly exterior benefit limit.
+
+METAL DEFINITION (Section 3i):
+"Metal" means steel or aluminium only. Plastic, fibre glass and similar materials are specifically excluded from the exterior metal definition.
+
+SPECIFIC EXCEPTIONS (Section 12 — NOT COVERED):
+- Any loss or damage outside the Republic of South Africa.
+- Loss or damage from an accident or collision that is not of a minor nature and would ordinarily form part of a comprehensive motor insurance claim (whether or not the client has such a policy).
+
+SPECIFIC EXCLUSIONS (Section 14 — NO BENEFIT FOR):
+- Damage not defined under the plan benefits.
+- Damage to ineligible vehicles.
+- Damage outside the plan period.
+- Damage exceeding the maximum benefit limit (must be claimed under insurance policy).
+- Damage to the inside load bin area of a vehicle.
+- Damage requiring stripping, replacement and reassembly of body panels.
+- Damage from removal of windscreen to facilitate a repair.
+- Accessories, door mouldings, window mouldings, beadings, lamps, window panels.
+- Car radios, sound equipment or car telephones.
+- Tyres.
+- Stickers (unless OEM approved sticker kits).
+- Third party property damage, passenger or third party death or injury.
+- Sun damage to interior items where repairer deems irreparable.
+- Guides, frames, rails and nails relating to headrest repair.
+- Pre-existing damage, including rusting or gradually developing causes.
+- Body panels that are ripped, torn, perforated, or with structural/alignment damage.
+- Depreciation in value from repairs or restoration.
+- Any claim, repairs or services outside the Republic of South Africa.
+
+CLAIMS PROCEDURE (Section 15b):
+1. Contact Traficc within 30 days of the incident for pre-approval: Tel 0861 872 3422 or 021 425 7066. Email: claims@traficc.co.za. Hours: Mon-Fri 08:30-17:00 (after-hours recording available).
+2. Complete claim form and email to Traficc.
+3. On pre-approval, deliver vehicle to Authorised Dealer for assessment and maintenance.
+4. No benefit will be paid if authorisation is not obtained BEFORE commencement of repairs.
+Information required: client name, plan number, vehicle registration number, nature of claim.
+
+CLAIM REJECTION (Section 15b):
+If rejected, client entitled to full explanation. 90 days to make written representation to Traficc. Traficc has 45 days to respond. If still dissatisfied: National Consumer Commission — Tel: 012 428 7000, Email: enquiries@thencc.org.za.
+
+TRANSFERABILITY (Section 16):
+- Plan transfers to replacement vehicle if original vehicle is written off or stolen (remainder of contract transfers).
+- Plan transfers to new owner if vehicle is sold (vehicle specific).
+- All transfer requests in writing to admin@traficc.co.za with plan number, current and new registration, reason for request.
+
+TERMINATION AND REFUNDS (Section 15a):
+- Client may terminate at any time in writing.
+- Refund calculated pro rata for unused period less all fees and costs, within 30 days of request. No refund if a benefit has been approved or if refund due is less than R200.
+- If plan financed by financial institution, refund goes to that institution.
+- Traficc may terminate on 31 days written notice.
+- Termination contact: admin@traficc.co.za or Tel: 0861 872 3422 / 021 425 7066.
+
+OBLIGATIONS (Section 10):
+- Fee must be paid by Due Date.
+- Client must take reasonable steps to maintain vehicle bodywork.
+- Client is responsible for costs exceeding plan limits or outside plan scope.
+- When vehicle is brought in, ALL interior or exterior damage must be assessed — client cannot select only certain items.
+
+IMPORTANT NOTE:
+This is a maintenance plan, not an insurance product. The administrator (Traficc) and plan owner (Traficc Maintenance Plans Pty Ltd) are the contracting parties — not an insurer. Complaints escalate to the National Consumer Commission, not an insurance ombud.`
+  }
+  ,
+  {
+    id: 'cosmeticelite',
+    label: 'Cosmetic Plan — Elite',
+    color: '#B45309',
+    hint: 'G303 — Elite Cosmetic Plan — Traficc Maintenance Plans',
+    suggestions: [
+      'What is the monthly exterior benefit limit?',
+      'What interior benefits are covered?',
+      'What is the waiting period before I can claim?',
+      'How do I submit a cosmetic claim?',
+      'Is pre-existing damage covered?',
+      'What is the cooling off period?',
+      'Can the plan be transferred to a new owner?',
+      'Are PDR dents always repairable under this plan?'
+    ],
+    context: `TRAFICC ELITE COSMETIC PLAN (G303) — OFFICIAL TERMS AND CONDITIONS
+
+PRODUCT OVERVIEW:
+This is NOT an insurance product. It is a redeemable maintenance plan administered by Traficc (FSP#25955) and owned by Traficc Maintenance Plans (Pty) Ltd (Reg#2004/031492/07). It covers cosmetic maintenance and restoration of a vehicle's interior and/or exterior resulting from everyday wear and tear. Three variants exist under the Elite tier: Interior Only, Exterior Only, and Combined (Interior and Exterior).
+
+PLAN PERIOD OPTIONS (Section 6):
+24, 36, 48, 60 or 72 months — as elected and noted on the Plan Schedule.
+
+WAITING PERIOD (Section 6 / Section 3h):
+Benefits commence 30 days after the Start Date of the Plan. No claim submitted within the first 30 days will be entertained.
+
+COOLING OFF PERIOD (Section 17):
+14 working days from the Plan Start Date. Cancellation within this period incurs no penalty.
+
+ELIGIBLE VEHICLES (Section 5):
+Light motor vehicles, mini-buses, 4x4 vehicles, 4x2 vehicles, light delivery vehicles and panel vans with GVM not exceeding 3,500kg. Used for business, social, domestic and pleasure purposes. Motorcycles are specifically excluded.
+
+INELIGIBLE VEHICLES (Section 13):
+Vehicles used for car rental, as a taxi, carriage of fare-paying passengers, racing, speed or other contests, rallies, trials, or use on any race-track.
+
+PLAN USAGE RULES (Section 7):
+- One interior claim per month maximum (Combined and Interior Only plans).
+- One exterior claim per month maximum (Combined and Exterior Only plans).
+- Usage is once per month regardless of how many benefits are used in that visit.
+- When the vehicle is brought in, ALL damage to the interior or exterior must be assessed — the client may NOT select only certain items for repair.
+
+BENEFIT LIMITS:
+INTERIOR (Elite Interior Only / Elite Combined):
+- Maximum R3,500 (incl. VAT) per month for interior benefits (Section 8a to 8g).
+
+EXTERIOR (Elite Exterior Only / Elite Combined):
+- Maximum R3,500 (incl. VAT) per month for exterior benefits (Section 8/9a to h).
+- Maximum R3,500 (incl. VAT) per 12-month period for wheels and alloy rims benefit (Section 8/9i) — this is OVER AND ABOVE the monthly exterior limit.
+
+KEY DIFFERENCE FROM PREMIUM: The Elite exterior monthly limit is R3,500 vs Premium's R7,000. The Elite wheels/rims annual limit is R3,500 vs Premium's R7,000. Interior limits are identical across both tiers.
+
+INTERIOR BENEFITS (Section 8 — Elite Interior Only and Elite Combined):
+a) Cigarette burns — repairs to minor burn damage on seats and interior areas.
+b) Delamination of rubber coatings — restoration of delaminating rubber-coated surfaces.
+c) Repair, refurbish, restore or recovering — covers interior trim components including sun visor clip.
+d) Re-spraying — plastic door handles, door panels, faded dashboards, gear levers and steering wheels.
+e) Rips and tears — small rips and tears in seats, gear lever and handbrake covers.
+f) Scuffs and scratches — scratches and scuffs on interior surfaces and armrests.
+g) Sagging or loose headliner — repair and restoration of existing internal roof linings. Convertibles and vehicles with sunroofs are excluded.
+
+EXTERIOR BENEFITS (Section 8/9 — Elite Exterior Only and Elite Combined):
+a) Paintless Dent Removal (PDR) — removes dents and dings from conventional metal panels without affecting factory finish. Only dents suited to PDR technique are covered.
+   PDR Exclusions: dents where paintwork is damaged or metal is stretched; dents requiring painting or panel replacement; ripped/torn body panels; dents requiring body filler or sanding; repairs requiring stripping and re-assembly of panels or bumpers.
+b) Spot repair, paint chip and car paint scratch repair — touch-up and spot repair of paint chips and scratches.
+c) Brush touches of scratches — minor scratches concealed by brush touch or polishing of a specific area (not entire vehicle).
+d) Spot repair — touch-up to paintwork repairable without removal of parts and without blending onto adjacent panels.
+e) Chips — small paint chips repairable by brush touching. Exclusions: no scuffs or series of scratches; no buff and polish of entire vehicle.
+f) Bumper scuffs — cosmetic scratches to plastic bumpers where alignment is unaffected and repair achievable by polishing, brush touch or spot repair.
+g) Tar removal — removal of tar from bodywork using standard autobody detergents and polishes.
+h) Windscreen chip repair — repairable chips that do not compromise driver visibility or roadworthiness. If windscreen cracks during repair, replacement cost is for client's account. Includes repairable damage to headlamps and related glass components.
+i) Wheels and alloy rims — R3,500 (incl. VAT) per 12-month period. This is over and above the monthly exterior benefit limit.
+
+METAL DEFINITION (Section 3i):
+"Metal" means steel or aluminium only. Plastic, fibre glass and similar materials are specifically excluded from the exterior metal definition.
+
+SPECIFIC EXCEPTIONS (Section 12 — NOT COVERED):
+- Any loss or damage outside the Republic of South Africa.
+- Loss or damage from an accident or collision that is not of a minor nature and would ordinarily form part of a comprehensive motor insurance claim (whether or not the client has such a policy).
+
+SPECIFIC EXCLUSIONS (Section 14 — NO BENEFIT FOR):
+- Damage not defined under the plan benefits.
+- Damage to ineligible vehicles.
+- Damage outside the plan period.
+- Damage exceeding the maximum benefit limit (must be claimed under insurance policy).
+- Damage to the inside load bin area of a vehicle.
+- Damage requiring stripping, replacement and reassembly of body panels.
+- Damage from removal of windscreen to facilitate a repair.
+- Accessories, door mouldings, window mouldings, beadings, lamps, window panels.
+- Car radios, sound equipment or car telephones.
+- Tyres.
+- Stickers (unless OEM approved sticker kits).
+- Third party property damage, passenger or third party death or injury.
+- Sun damage to interior items where repairer deems irreparable.
+- Guides, frames, rails and nails relating to headrest repair.
+- Pre-existing damage, including rusting or gradually developing causes.
+- Body panels that are ripped, torn, perforated, or with structural/alignment damage.
+- Depreciation in value from repairs or restoration.
+- Any claim, repairs or services outside the Republic of South Africa.
+
+CLAIMS PROCEDURE (Section 15b):
+1. Contact Traficc within 30 days of the incident for pre-approval: Tel 0861 872 3422 or 021 425 7066. Email: claims@traficc.co.za. Hours: Mon-Fri 08:30-17:00 (after-hours recording available).
+2. Complete claim form and email to Traficc.
+3. On pre-approval, deliver vehicle to Authorised Dealer for assessment and maintenance.
+4. No benefit will be paid if authorisation is not obtained BEFORE commencement of repairs.
+Information required: client name, plan number, vehicle registration number, nature of claim.
+
+CLAIM REJECTION (Section 15b):
+If rejected, client entitled to full explanation. 90 days to make written representation to Traficc. Traficc has 45 days to respond. If still dissatisfied: National Consumer Commission — Tel: 012 428 7000, Email: enquiries@thencc.org.za.
+
+TRANSFERABILITY (Section 16):
+- Plan transfers to replacement vehicle if original vehicle is written off or stolen (remainder of contract transfers).
+- Plan transfers to new owner if vehicle is sold (vehicle specific).
+- All transfer requests in writing to admin@traficc.co.za with plan number, current and new registration, reason for request.
+
+TERMINATION AND REFUNDS (Section 15a):
+- Client may terminate at any time in writing.
+- Refund calculated pro rata for unused period less all fees and costs, within 30 days of request. No refund if a benefit has been approved or if refund due is less than R200.
+- If plan financed by financial institution, refund goes to that institution.
+- Traficc may terminate on 31 days written notice.
+- Termination contact: admin@traficc.co.za or Tel: 0861 872 3422 / 021 425 7066.
+
+OBLIGATIONS (Section 10):
+- Fee must be paid by Due Date.
+- Client must take reasonable steps to maintain vehicle bodywork.
+- Client is responsible for costs exceeding plan limits or outside plan scope.
+- When vehicle is brought in, ALL interior or exterior damage must be assessed — client cannot select only certain items.
+
+IMPORTANT NOTE:
+This is a maintenance plan, not an insurance product. The administrator (Traficc) and plan owner (Traficc Maintenance Plans Pty Ltd) are the contracting parties — not an insurer. Complaints escalate to the National Consumer Commission, not an insurance ombud.`
+  }
+  // Additional products will be added here as T&Cs are uploaded
+];
+
+let selectedProduct = null;
+let chatHistory = [];
+let isLoading = false;
+
+// ── Render product grid ──
+function renderDictProducts() {
+  const grid = document.getElementById('productGrid');
+  grid.innerHTML = PRODUCTS.map(p => `
+    <button class="prod-btn${selectedProduct && selectedProduct.id === p.id ? ' active' : ''}" onclick="selectProduct('${p.id}')">
+      <span class="prod-dot" style="background:${p.color}"></span>
+      ${p.label}
+    </button>
+  `).join('');
+}
+
+function selectProduct(id) {
+  selectedProduct = PRODUCTS.find(p => p.id === id);
+  chatHistory = [];
+  renderDictProducts();
+  document.getElementById('chatBadge').textContent = selectedProduct.label;
+  document.getElementById('chatHint').textContent = selectedProduct.hint;
+  document.getElementById('inputBox').placeholder = `Ask anything about the ${selectedProduct.label}...`;
+  document.getElementById('inputBox').disabled = false;
+  document.getElementById('btnAsk').disabled = false;
+  document.getElementById('clearBtn').style.display = 'block';
+  renderSuggestions();
+  renderMessages();
+}
+
+function renderSuggestions() {
+  if (!selectedProduct) return;
+  const el = document.getElementById('suggestions');
+  el.style.display = 'block';
+  el.innerHTML = `<div class="suggestion-label">Quick questions</div>` +
+    selectedProduct.suggestions.map(s =>
+      `<button class="suggestion-chip" onclick="useSuggestion('${s.replace(/'/g, "\\'")}')">${s}</button>`
+    ).join('');
+}
+
+function useSuggestion(text) {
+  const box = document.getElementById('inputBox');
+  box.value = text;
+  box.focus();
+  askQuestion();
+}
+
+function renderMessages() {
+  const el = document.getElementById('messages');
+  if (chatHistory.length === 0) {
+    el.innerHTML = `<div class="empty-state">
+      <div class="empty-icon">💬</div>
+      <div class="empty-title">${selectedProduct.label} selected</div>
+      <div class="empty-sub">Ask any question about benefits, exclusions, premiums, plans, or claims procedures.</div>
+    </div>`;
+    return;
+  }
+  el.innerHTML = chatHistory.map(msg => {
+    if (msg.role === 'user') {
+      return `<div class="msg user">
+        <div class="msg-avatar">BM</div>
+        <div class="msg-bubble">${escHtml(msg.content)}</div>
+      </div>`;
+    } else {
+      return `<div class="msg assistant">
+        <div class="msg-avatar">📖</div>
+        <div>
+          <div class="msg-bubble">${formatAnswer(msg.content)}${msg.source ? `<div class="msg-source"><div class="msg-source-label">Source reference</div>${escHtml(msg.source)}</div>` : ''}</div>
+        </div>
+      </div>`;
+    }
+  }).join('');
+  el.scrollTop = el.scrollHeight;
+}
+
+function showTyping() {
+  const el = document.getElementById('messages');
+  const typing = document.createElement('div');
+  typing.className = 'msg assistant typing-msg';
+  typing.innerHTML = `<div class="msg-avatar">📖</div><div class="typing-dots"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div>`;
+  el.appendChild(typing);
+  el.scrollTop = el.scrollHeight;
+}
+
+function removeTyping() {
+  const t = document.querySelector('.typing-msg');
+  if (t) t.remove();
+}
+
+function formatAnswer(text) {
+  return text
+    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\n\n/g, '</p><p>')
+    .replace(/\n/g, '<br>')
+    .replace(/^/, '<p>')
+    .replace(/$/, '</p>');
+}
+
+function escHtml(str) {
+  return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function askQuestion() {
+  if (!selectedProduct || isLoading) return;
+  const box = document.getElementById('inputBox');
+  const question = box.value.trim();
+  if (!question) return;
+
+  box.value = '';
+  box.style.height = 'auto';
+  isLoading = true;
+  document.getElementById('btnAsk').disabled = true;
+  document.getElementById('inputBox').disabled = true;
+
+  chatHistory.push({ role: 'user', content: question });
+  renderMessages();
+  showTyping();
+
+  var messages = chatHistory.slice(0, -1).map(function(m) {
+    return { role: m.role, content: m.content };
+  });
+  messages.push({ role: 'user', content: question });
+
+  function onSuccess(data) {
+    removeTyping();
+    try {
+      if (!data) data = {};
+      var fullAnswer;
+      if (data.content && data.content[0] && data.content[0].text) {
+        fullAnswer = data.content[0].text;
+      } else if (data.error) {
+        var errMsg = (typeof data.error === 'object') ? (data.error.message || JSON.stringify(data.error)) : data.error;
+        fullAnswer = 'Error: ' + errMsg;
+      } else {
+        fullAnswer = 'Sorry, I could not retrieve an answer. Please try again.';
+      }
+
+      var sourceMatch = fullAnswer.match(/\[SOURCE\] Source:([\s\S]*?)$/);
+      var answerText = sourceMatch ? fullAnswer.replace(sourceMatch[0], '').trim() : fullAnswer;
+      var sourceText = sourceMatch ? sourceMatch[1].trim() : null;
+
+      chatHistory.push({ role: 'assistant', content: answerText, source: sourceText });
+    } catch(e) {
+      chatHistory.push({ role: 'assistant', content: 'Sorry, something went wrong parsing the response.', source: null });
+    }
+    renderMessages();
+    isLoading = false;
+    document.getElementById('btnAsk').disabled = false;
+    document.getElementById('inputBox').disabled = false;
+    document.getElementById('inputBox').focus();
+  }
+
+  function onFailure(err) {
+    removeTyping();
+    chatHistory.push({ role: 'assistant', content: 'Sorry, something went wrong. Please try again.', source: null });
+    renderMessages();
+    isLoading = false;
+    document.getElementById('btnAsk').disabled = false;
+    document.getElementById('inputBox').disabled = false;
+  }
+
+  fetch('/api/ask', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ productId: selectedProduct.id, messages: messages })
+  })
+  .then(function(r) { return r.json(); })
+  .then(onSuccess)
+  .catch(onFailure);
+}
+
+function clearChat() {
+  chatHistory = [];
+  renderMessages();
+}
+
+// Dict textarea listeners — called once when dict view first activates
+let _dictListenersInit = false;
+function initDictListeners() {
+  if (_dictListenersInit) return;
+  _dictListenersInit = true;
+  const box = document.getElementById('inputBox');
+  if (!box) return;
+  box.addEventListener('input', function() {
+    this.style.height = 'auto';
+    this.style.height = Math.min(this.scrollHeight, 120) + 'px';
+  });
+  box.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      askQuestion();
+    }
+  });
+}
+
+// Do NOT call renderDictProducts or attach listeners at page load
+// They are called from switchView('dictionary') instead
+
+
+// Enter key on start screen
+document.addEventListener('keydown', e => {
+  if (e.key === 'Enter' && $('startScreen').style.display !== 'none') handleStart();
+});
+
+
+</script>
+</body>
+</html>
