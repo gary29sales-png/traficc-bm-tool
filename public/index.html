@@ -2279,7 +2279,7 @@ const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz8s-vQvSxl-ywq
 
 function logDownload() {
   logSgUsage('Shortfall Calculator Download [' + transactionType.toUpperCase() + '] — Invoice: R' + dealInvoice.toLocaleString('en-ZA'), '');
-  var url = '/api/shortfall?invoice=' + encodeURIComponent(dealInvoice) + '&deposit=' + encodeURIComponent(dealDeposit);
+  var url = '/files/Shortfall_Calculator.xlsx';
   window.open(url, '_blank');
 }
 
